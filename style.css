@@ -1,0 +1,128 @@
+/* Основные настройки */
+html, body {
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Exo 2', sans-serif;
+    background-color: rgb(0, 29, 29);
+    color: #ececec;
+    scroll-behavior: smooth;
+    background-size: cover;
+}
+
+/* Шапка сайта */
+.site-header {
+    position: fixed;
+    top: 0;
+    opacity: 60%;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 5;
+    padding: 10px 20px;
+    transition: all 0.5s ease-in-out;
+}
+
+.site-header:hover {
+    opacity: 100%;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.navbar a:hover {
+    color: #00ffb3;
+    text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
+    transform: scale(1.05);
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Блоки сайта */
+.block {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(50px);
+    position: relative;
+    height: 80vh;
+    width: 70%;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(329deg, rgba(100,0,30,0.5) 30%, rgba(0,0,0,0) 100%);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    text-align: center;
+    box-shadow: 0 8px 60px rgba(100,0,30,0.1);
+    transition: box-shadow 0.5s ease-out, scale 0.5s ease-out, opacity 0.8s, transform 0.8s;
+}
+.block:hover {
+    box-shadow: 0 8px 80px rgba(100,0,30,0.1);
+    scale: 105%;
+}
+
+.block.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.block.hidden {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+/* Заголовки и текст внутри блока */
+.block h2 {
+    transition: text-shadow 0.01s, opacity 0.1s;
+    font-family: 'Rubik Vinyl', bold;
+    font-size: 4vw;
+    text-shadow: 0 0 10px #ccff00, 0 0 30px #ccff00, 0 0 35px #00ffb3;
+}
+
+.block p {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.6vw;
+    line-height: 1.6;
+    max-width: 60vw;
+    margin: 0 auto;
+}
+
+/* Оптимизация для телефонов */
+@media (orientation: portrait){
+    .site-header{
+        width: 90%;
+    }
+    .navbar a {
+        font-size: 12px; /* Уменьшаем размер текста в меню */
+    }
+
+    .block {
+        width: 90%; /* Увеличиваем ширину для удобства на маленьких экранах */
+    }
+
+    .block h2 {
+        font-size: 7vw; /* Увеличиваем пропорционально размер заголовка */
+    }
+
+    .block p {
+        font-size: 3.5vw; /* Уменьшаем текст внутри блоков */
+    }
+}
+@media (orientation: landscape) {
+    .site-header{
+        width: 100%;
+    }
+}
