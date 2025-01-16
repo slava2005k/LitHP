@@ -65,7 +65,6 @@ html, body {
   .glowing-txt {
     display: flex;
     margin-right: 10%;
-    padding: 5px 10px;
     align-items: center;
   }
   .glowing-txt a{
