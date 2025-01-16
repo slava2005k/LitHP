@@ -25,7 +25,7 @@ const scrollToSection = (index) => {
     });
 
     window.scrollTo({
-        top: targetSection.offsetTop - 75,
+        top: targetSection.offsetTop - 155,
         behavior: 'smooth',
     });
 
@@ -105,7 +105,7 @@ window.addEventListener('touchend', (event) => {
 // Обновление текущего индекса при ручной прокрутке
 window.addEventListener('scroll', () => {
     if (!isScrolling) {
-        const scrollPosition = window.scrollY + 75; // Учитываем смещение
+        const scrollPosition = window.scrollY + 155; // Учитываем смещение
         sections.forEach((section, index) => {
             if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
                 currentIndex = index; // Обновляем текущий индекс

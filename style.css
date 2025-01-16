@@ -12,17 +12,33 @@ html, body {
 
 /* Шапка сайта */
 .site-header {
+    text-align: left;
+    width: 100%;
+    display: flex;
     position: fixed;
     top: 0;
-    opacity: 60%;
     background-color: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     z-index: 5;
     transition: all 0.5s ease-in-out;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1),
+                0px 3px 4px rgba(0, 0, 0, 0.2), 
+                0px 5px 8px rgba(0, 0, 0, 0.3), 
+                0px 9px 16px rgba(0, 0, 0, 0.4);
+    padding: 10px 20px; /* Отступы для удобства */
+    align-items: center;
+    justify-content: space-around;
 }
 
-.site-header:hover {
-    opacity: 100%;
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* Разрешаем перенос строк */
+    gap: 15px; /* Расстояние между ссылками */
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Выравниваем текст по центру */
 }
 
 .navbar a {
@@ -31,6 +47,9 @@ html, body {
     font-family: 'Exo 2', sans-serif;
     font-weight: bold;
     font-size: 18px;
+    padding: 5px 10px; /* Внутренние отступы для удобства */
+    text-align: center;
+    word-wrap: break-word; /* Разрешаем разрыв текста, если он слишком длинный */
 }
 
 .navbar a:hover {
@@ -39,37 +58,108 @@ html, body {
     transform: scale(1.05);
 }
 
-.navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+/* Мигающий текст */
+:root {
+    --glow-color: hsl(186 100% 69%);
+  }
+  .glowing-txt {
     display: flex;
-    justify-content: space-around;
+    margin-right: 10%;
+    padding: 5px 10px;
+    align-items: center;
+  }
+  .glowing-txt a{
+    color: #ffffff;
+    text-shadow: 0 0 15px #ffffff;
+    font-family: 'Rubik Vinyl', bold;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .glowing-txt a:hover{
+    color: #00ffb3;
+    text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
+    transform: scale(1.05);
+  }
+
+  .glowing-txt img{
+    margin-top:0.45vw;
 }
+  .faulty-letter-l {
+    opacity: 0.5;
+    animation: faulty-flicker 2s linear infinite;
+  }
+
+  .faulty-letter-e {
+    opacity: 0.5;
+    animation: faulty-flicker 1.5s linear infinite;
+  }
+
+  .faulty-letter-a {
+    opacity: 0.5;
+    animation: faulty-flicker 2.5s linear infinite;
+  }
+
+  @keyframes faulty-flicker {
+    0% {
+      opacity: 0.1;
+    }
+    2% {
+      opacity: 0.1;
+    }
+    4% {
+      opacity: 0.5;
+    }
+    19% {
+      opacity: 0.5;
+    }
+    21% {
+      opacity: 0.1;
+    }
+    23% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0.5;
+    }
+    83% {
+      opacity: 0.4;
+    }
+  
+    87% {
+      opacity: 1;
+    }
+  }
 
 /* Блоки сайта */
 .block {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(-50px);
     position: relative;
     height: 80vh;
     width: 70%;
     margin: 50px auto;
+    margin-top: 30%;
     padding: 20px;
-    background: linear-gradient(329deg, rgba(100,0,30,0.5) 30%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(329deg, rgba(100,0,30,0.5) 30%, rgba(100,0,30,0.1) 100%);
     border-radius: 50px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
     text-align: center;
-    box-shadow: 0 8px 60px rgba(100,0,30,0.1);
+    box-shadow: 0px 1px 2px rgba(0, 0 , 0, 0.1),
+    0px 3px 4px rgba(0, 0 , 0, 0.2), 
+    0px 5px 8px rgba(0, 0 , 0, 0.3), 
+    0px 9px 16px rgba(0, 0 , 0, 0.4);
     transition: box-shadow 0.5s ease-out, scale 0.5s ease-out, opacity 0.8s, transform 0.8s;
 }
 .block:hover {
-    box-shadow: 0 8px 80px rgba(100,0,30,0.1);
+    box-shadow: 0px 1px 2px rgba(0, 0 , 0, 0.1),
+    0px 6px 9px rgba(0, 0 , 0, 0.2), 
+    0px 10px 13px rgba(0, 0 , 0, 0.3), 
+    0px 14px 21px rgba(0, 0 , 0, 0.4);
     scale: 105%;
 }
 
@@ -102,9 +192,8 @@ html, body {
 /* Оптимизация для телефонов */
 @media (orientation: portrait){
     .site-header{
-        width: 100%;
-        height: auto;
         padding: 0px 0px;
+        justify-content: flex-start;
     }
     .navbar a {
         margin-left: 3px;
@@ -112,24 +201,55 @@ html, body {
         font-size: 3.5vw;
     }
 
+    .glowing-txt {
+        margin-right: 0%;
+    }
     .block {
-        width: 90%; /* Увеличиваем ширину для удобства на маленьких экранах */
+        width: 90%;
+        padding: 0px;
     }
 
     .block h2 {
-        font-size: 7vw; /* Увеличиваем пропорционально размер заголовка */
+        font-size: 7vw;
     }
 
     .block p {
-        font-size: 3.5vw; /* Уменьшаем текст внутри блоков */
+        font-size: 3.5vw;
+        text-align: left;
     }
+    .glowing-txt img{
+        width: 7vw;
+        height: 7vw;
+      }
 }
 @media (orientation: landscape) {
     .site-header{
-        width: 100vw;
-        padding: 10px 20px;
+        height: auto;
     }
     .navbar a{
         font-size: 1vw;
     }
+    .block p{
+        text-align: justify;
+    }
+    .glowing-txt{
+        font-size: 2vw;
+    }
+    .glowing-txt img{
+        width: 3vw;
+        height: 3vw;
+    }
+}
+@media (max-width: 420px) {
+    .navbar ul {
+        display: none; 
+    }
+    .block{
+        margin-top: 100vh;
+        top: 0px;
+    }
+    .glowing-txt img{
+        width: 12vw;
+        height: 12vw;
+      }
 }
