@@ -25,7 +25,7 @@ const scrollToSection = (index) => {
     });
 
     window.scrollTo({
-        top: targetSection.offsetTop - 140,
+        top: targetSection.offsetTop - 155,
         behavior: 'smooth',
     });
 
@@ -105,7 +105,7 @@ window.addEventListener('touchend', (event) => {
 // Обновление текущего индекса при ручной прокрутке
 window.addEventListener('scroll', () => {
     if (!isScrolling) {
-        const scrollPosition = window.scrollY + 140; // Учитываем смещение
+        const scrollPosition = window.scrollY + 155; // Учитываем смещение
         sections.forEach((section, index) => {
             if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
                 currentIndex = index; // Обновляем текущий индекс
@@ -152,3 +152,43 @@ function flickerEffect(element) {
 }
 
 neonTitles.forEach(title => flickerEffect(title)); // Запуск для всех заголовков
+
+
+// Получаем элементы
+const neonIcon = document.querySelector('.glowing img, .faulty-letter-l, .faulty-letter-e, .faulty-letter-a');
+const neonText = document.querySelector('.glowing-text');
+const faultyLetters = document.querySelectorAll('.faulty-letter-l, .faulty-letter-e, .faulty-letter-a');
+
+// Добавляем обработчик клика на иконку
+neonIcon.addEventListener('click', () => {
+  // Добавляем эффект "поломки"
+  neonText.classList.add('broken');
+  
+  // Отключаем анимации у "неисправных" букв
+  faultyLetters.forEach(letter => {
+    letter.style.animation = 'none'; // Полное отключение анимации
+  });
+
+  // Восстанавливаем через 3 секунды
+  setTimeout(() => {
+    neonText.classList.remove('broken');
+    
+    // Включаем анимации обратно у "неисправных" букв
+    faultyLetters.forEach(letter => {
+      letter.style.animation = ''; // Возвращаем анимацию к изначальному состоянию
+    });
+  }, 3000);
+});
+
+const glowingImg = document.querySelector('.glowing img');
+
+// Добавляем обработчик события "клик"
+glowingImg.addEventListener('click', () => {
+  // Добавляем класс "clicked" для анимации
+  glowingImg.classList.add('clicked');
+  
+  // Убираем эффект через 300 мс (длительность анимации)
+  setTimeout(() => {
+    glowingImg.classList.remove('clicked');
+  }, 300);
+});

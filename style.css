@@ -35,7 +35,6 @@ html, body {
     display: flex;
     justify-content: center;
     flex-wrap: nowrap; /* Разрешаем перенос строк */
-    gap: 15px; /* Расстояние между ссылками */
     margin: 0;
     padding: 0;
     text-align: center; /* Выравниваем текст по центру */
@@ -46,7 +45,6 @@ html, body {
     text-decoration: none;
     font-family: 'Exo 2', sans-serif;
     font-weight: bold;
-    font-size: 18px;
     padding: 5px 10px; /* Внутренние отступы для удобства */
     text-align: center;
     word-wrap: break-word; /* Разрешаем разрыв текста, если он слишком длинный */
@@ -59,29 +57,34 @@ html, body {
 }
 
 /* Мигающий текст */
-:root {
-    --glow-color: hsl(186 100% 69%);
-  }
-  .glowing-txt {
+  .glowing {
     display: flex;
     margin-right: 10%;
     align-items: center;
   }
-  .glowing-txt a{
+  .glowing-text{
     color: #ffffff;
     text-shadow: 0 0 15px #ffffff;
     font-family: 'Rubik Vinyl', bold;
     font-weight: bold;
     text-decoration: none;
-  }
-  .glowing-txt a:hover{
-    color: #00ffb3;
-    text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
-    transform: scale(1.05);
-  }
 
-  .glowing-txt img{
+    animation: glowing 6s linear infinite;
+  }
+  .glowing-text.broken {
+    color: #444; /* Выключенный текст */
+    text-shadow: none;
+    animation: brok 0.1s linear; /* Эффект искр */
+  }
+  .glowing img{
+    cursor: pointer;
     margin-top:0.45vw;
+    margin-right: 5px;
+    transition: transform 0.3s ease;
+  }
+.glowing img.clicked {
+  transform: scale(1.2);
+  transition: transform 0.1s ease;
 }
   .faulty-letter-l {
     opacity: 0.5;
@@ -98,6 +101,53 @@ html, body {
     animation: faulty-flicker 2.5s linear infinite;
   }
 
+  @keyframes glowing{
+    0%{
+      opacity: 0;
+      color: #ffffff;
+      text-shadow: 0 0 15px #ffffff;
+      filter: blur(0.5px);
+    }
+    2% {
+      opacity: 0.5;
+    }
+    4% {
+      opacity: 1;
+      filter: blur(2px);
+    }
+    6%{
+      opacity: 0;
+      filter: blur(0.5px);
+    }
+    20%{
+      opacity: 1;
+      color: #dbdbdb;
+      text-shadow: 0 0 5px #ffffff;
+    }
+    50%{
+      opacity: 1;
+      color: #ffffff;
+      text-shadow: 0 0 15px #ffffff;
+    }
+    90%{
+      opacity: 1;
+    }
+    92%{
+      opacity: 0;
+      filter: blur(0.5px);
+    }
+    93%{
+      opacity: 1;
+      filter: blur(2px);
+    }
+    98%{
+      opacity: 1;
+      filter: blur(0.5px);
+    }
+    100%{
+      opacity: 0;
+    }
+  }
   @keyframes faulty-flicker {
     0% {
       opacity: 0.1;
@@ -123,12 +173,22 @@ html, body {
     83% {
       opacity: 0.4;
     }
-  
     87% {
       opacity: 1;
     }
   }
-
+/* Анимация потухания */
+@keyframes brok {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px #fff, 
+      0 0 10px #fff;
+  }
+  5% {
+    text-shadow: 
+      0 0 30px #fff;
+  }
+}
 /* Блоки сайта */
 .block {
     backdrop-filter: blur(10px);
@@ -194,13 +254,17 @@ html, body {
         padding: 0px 0px;
         justify-content: flex-start;
     }
+    .navbar{
+      margin-left: 5vw;
+    }
     .navbar a {
-        margin-left: 3px;
-        margin-right: 3px;
-        font-size: 3.5vw;
+        padding: 5px 5px;
+        margin-left: 0px;
+        margin-right: 0px;
+        font-size: 2vw;
     }
 
-    .glowing-txt {
+    .glowing {
         margin-right: 0%;
     }
     .block {
@@ -216,7 +280,7 @@ html, body {
         font-size: 3.5vw;
         text-align: left;
     }
-    .glowing-txt img{
+    .glowing img{
         width: 7vw;
         height: 7vw;
       }
@@ -231,15 +295,15 @@ html, body {
     .block p{
         text-align: justify;
     }
-    .glowing-txt{
+    .glowing{
         font-size: 2vw;
     }
-    .glowing-txt img{
+    .glowing img{
         width: 3vw;
         height: 3vw;
     }
 }
-@media (max-width: 420px) {
+@media (max-width: 495px) {
     .navbar ul {
         display: none; 
     }
