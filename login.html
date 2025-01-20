@@ -4,49 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telegram Login</title>
-    <script async src="https://telegram.org/js/telegram-widget.js?22"
-            data-telegram-login="limeplay_bot"
-            data-size="large"
-            data-userpic="false"
-            data-radius="20"
-            data-onauth="onTelegramAuth(user)"
-            data-request-access="write"></script>
-</head>
 <body>
     <h1>Добро пожаловать!</h1>
     <p>Войдите через Telegram:</p>
 
-    <script type="text/javascript">
-        function onTelegramAuth(user) {
-            // Собираем данные для отправки на сервер
-            const authData = {
-                id: user.id,
-                first_name: user.first_name,
-                last_name: user.last_name,
-                username: user.username,
-                photo_url: user.photo_url
-            };
-
-            // Отправляем данные на сервер
-            fetch("https://lp-login.onrender.com/auth", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(authData) // отправка данных в формате JSON
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === "ok") {
-                    alert('Вы успешно авторизовались!');
-                } else {
-                    alert('Ошибка авторизации!');
-                }
-            })
-            .catch((error) => {
-                console.error('Ошибка:', error);
-            });
-        }
-    </script>
+<script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="limeplay_bot" data-size="large" data-userpic="false" data-radius="20" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+<script type="text/javascript">
+  function onTelegramAuth(user) {
+    alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+  }
+</script>
 </body>
 </html>
