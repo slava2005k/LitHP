@@ -3,45 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Exo+2&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
     <title>Рейтинг игроков</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
-            text-align: center;
-        }
-        table {
-            width: 60%;
-            margin: 20px auto;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid white;
-        }
-        th {
-            background-color: #333;
-        }
-    </style>
 </head>
 <body>
 
-    <h1>Топ игроков Minecraft</h1>
-    <p id="update-time">Обновление...</p>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Игрок</th>
-                <th>Рейтинг</th>
-            </tr>
-        </thead>
-        <tbody id="rating-table">
-            <tr><td colspan="3">Загрузка данных...</td></tr>
-        </tbody>
-    </table>
+    <header class="site-header">
+        <div class="glowing">
+            <div>
+              <a><img src="images/logo.png" alt="logo"></a>
+            </div>
+              <a class="glowing-text" href="index.html">
+                L<span class='faulty-letter-l'>I</span>M
+                <span class='faulty-letter-e'>E</span> PL
+                <span class="faulty-letter-a">A</span>Y
+              </a>
+          </div>
+        <nav class="navbar">
+            <ul>
+            </ul>
+        </nav>
+    </header> 
 
+<main>
+    <div class="players">    
+        <h2>Топ игроков по рейтингу</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th><p>Игрок</p></th>
+                        <th><p>Рейтинг</p></th>
+                    </tr>
+                </thead>
+                <tbody id="rating-table">
+                    <tr><td colspan="3">Загрузка данных...</td></tr>
+                </tbody>    
+            </table>
+        <p class="uptime" id="update-time"></p>
+    </div>
+</main>
     <script>
         async function loadRatings() {
             try {
@@ -53,7 +55,7 @@
 
                 data.forEach((player, index) => {
                     let row = document.createElement("tr");
-                    row.innerHTML = `<td>${index + 1}</td><td>${player.player_name}</td><td>${player.rating}</td>`;
+                    row.innerHTML = `<td>${player.player_name}</td><td>${player.rating}</td>`;
                     table.appendChild(row);
                 });
 

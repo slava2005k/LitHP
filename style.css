@@ -233,14 +233,15 @@ html, body {
 }
 
 /* Заголовки и текст внутри блока */
-.block h2 {
+h2 {
+    text-align: center;
     transition: text-shadow 0.01s, opacity 0.1s;
     font-family: 'Rubik Vinyl', bold;
-    font-size: 4vw;
+    font-size: 3vw;
     text-shadow: 0 0 10px #ccff00, 0 0 30px #ccff00, 0 0 35px #00ffb3;
 }
 
-.block p {
+p, tbody{
     font-family: 'Exo 2', sans-serif;
     font-size: 1.6vw;
     line-height: 1.6;
@@ -248,6 +249,29 @@ html, body {
     margin: 0 auto;
 }
 
+
+/*Таблицы*/
+.players{
+  margin-top: 10vw;
+}
+
+table {
+  background-color: #0000005b;
+  width: 60%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 10px;
+  border: 3px solid rgb(255, 255, 255);
+  box-shadow: 0 0 10px #ccff00, 0 0 3px #ccff00, 0 0 3px #00ffb3;
+}
+th {
+  background-color: #0000005b;
+}
+.uptime{
+  text-align: center;
+}
 /* Оптимизация для телефонов */
 @media (orientation: portrait){
     .site-header{
