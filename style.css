@@ -30,7 +30,7 @@ html, body {
     justify-content: space-around;
 }
 
-.navbar ul {
+.navbar ul{
     list-style: none;
     display: flex;
     justify-content: center;
@@ -40,7 +40,7 @@ html, body {
     text-align: center; /* Выравниваем текст по центру */
 }
 
-.navbar a {
+.navbar a, nav a {
     color: #ffffff;
     text-decoration: none;
     font-family: 'Exo 2', sans-serif;
@@ -50,7 +50,7 @@ html, body {
     word-wrap: break-word; /* Разрешаем разрыв текста, если он слишком длинный */
 }
 
-.navbar a:hover {
+.navbar a:hover, nav a:hover {
     color: #00ffb3;
     text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
     transform: scale(1.05);
@@ -70,6 +70,10 @@ html, body {
     text-decoration: none;
 
     animation: glowing 6s linear infinite;
+  }
+  .glowing-text:hover{
+    text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
+    animation: none;
   }
   .glowing-text.broken {
     color: #444; /* Выключенный текст */
@@ -197,7 +201,7 @@ html, body {
     transform: translateY(-50px);
     position: relative;
     height: 75vh;
-    width: 70%;
+    width: 75%;
     margin: 50px auto;
     margin-top: 30%;
     padding: 20px;
@@ -209,9 +213,9 @@ html, body {
     align-items: stretch;
     text-align: center;
     box-shadow: 0px 1px 2px rgba(0, 0 , 0, 0.1),
-    0px 3px 4px rgba(0, 0 , 0, 0.2), 
-    0px 5px 8px rgba(0, 0 , 0, 0.3), 
-    0px 9px 16px rgba(0, 0 , 0, 0.4);
+                0px 3px 4px rgba(0, 0 , 0, 0.2), 
+                0px 5px 8px rgba(0, 0 , 0, 0.3), 
+                0px 9px 16px rgba(0, 0 , 0, 0.4);
     transition: box-shadow 0.5s ease-out, scale 0.5s ease-out, opacity 0.8s, transform 0.8s;
 }
 .block:hover {
@@ -232,6 +236,13 @@ html, body {
     transform: translateY(-50px);
 }
 
+.block a{
+  text-decoration: none;
+  color: firebrick;
+}
+.block a:hover{
+  text-decoration: underline;
+}
 /* Заголовки и текст внутри блока */
 h2 {
     text-align: center;
@@ -245,11 +256,35 @@ p, tbody{
     font-family: 'Exo 2', sans-serif;
     font-size: 1.6vw;
     line-height: 1.6;
-    max-width: 60vw;
+    max-width: 70vw;
     margin: 0 auto;
 }
 
-
+.copyIP{
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1.6vw;
+  max-width: 30vw;
+  align-self: start;
+  margin-top: 1%;
+  text-align: center;
+  color: firebrick;
+  padding:6px;
+	text-decoration:none;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0);
+  border: 3px none;
+  border-radius: 5%;
+  transition: 1s ease-in-out;
+}
+.copyIP:hover{
+  border-radius: 10%;
+  text-decoration: underline;
+  background-color: rgba(0,0,0,0.1);
+}
+.copyIP:active{
+    position:relative;
+    top:2px;
+}
 /*Таблицы*/
 .players{
   margin-top: 10vw;
@@ -272,16 +307,20 @@ th {
 .uptime{
   text-align: center;
 }
+
 /* Оптимизация для телефонов */
 @media (orientation: portrait){
     .site-header{
         padding: 0px 0px;
         justify-content: flex-start;
     }
-    .navbar{
+    nav{
       margin-left: 5vw;
+    }    
+    .navbar ul {
+        display: none; 
     }
-    .navbar a {
+    nav a{
         padding: 5px 5px;
         margin-left: 0px;
         margin-right: 0px;
@@ -313,7 +352,7 @@ th {
     .site-header{
         height: auto;
     }
-    .navbar a{
+    nav a{
         font-size: 1vw;
     }
     .block p{
@@ -328,9 +367,7 @@ th {
     }
 }
 @media (max-width: 495px) {
-    .navbar ul {
-        display: none; 
-    }
+
     .block{
         margin-top: 100vh;
         top: 0px;

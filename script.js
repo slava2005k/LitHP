@@ -192,3 +192,9 @@ glowingImg.addEventListener('click', () => {
     glowingImg.classList.remove('clicked');
   }, 300);
 });
+
+
+function copyIP() {
+    const ip = "limeplay.gomc.fun";
+    navigator.clipboard.writeText(ip).then(() => {});
+}
