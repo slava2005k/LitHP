@@ -307,29 +307,49 @@ th {
 .uptime{
   text-align: center;
 }
-
+@media (max-width: 767px) {
+ 
+     }
 /* Оптимизация для телефонов */
 @media (orientation: portrait){
     .site-header{
-        padding: 0px 0px;
+        padding: 10px 0px;
         justify-content: flex-start;
     }
+    main {
+         margin-top: 60px; /* Отступ для шапки*/
+       }
     nav{
       margin-left: 5vw;
     }    
     .navbar ul {
         display: none; 
     }
+
     nav a{
         padding: 5px 5px;
         margin-left: 0px;
         margin-right: 0px;
         font-size: 2vw;
     }
-
+       
+    h2 {
+       font-size: 6vw;
+    }
+    
+    p {
+       font-size: 4vw;
+    }
+     
     .glowing {
         margin-right: 0%;
     }
+
+    .glowing img {
+       width: 10vw;
+       height: 10vw;
+     }
+     
     .block {
         width: 90%;
         padding: 0px;
@@ -346,7 +366,18 @@ th {
     .glowing img{
         width: 7vw;
         height: 7vw;
-      }
+   }
+   .copyIP {
+       font-size: 4vw;
+       padding: 10px;
+   }
+   
+   table {
+       width: 100%;
+       overflow-x: auto;
+       display: block;
+   }
+     
 }
 @media (orientation: landscape) {
     .site-header{
@@ -367,13 +398,15 @@ th {
     }
 }
 @media (max-width: 495px) {
-
-    .block{
-        margin-top: 100vh;
-        top: 0px;
-    }
-    .glowing-txt img{
-        width: 12vw;
-        height: 12vw;
-      }
+       .block {
+         width: 90%;
+         padding: 10px;
+         margin-top: 20%;
+       }
+       .block h2 {
+         font-size: 6vw;
+       }
+       .block p {
+         font-size: 4vw;
+       }
 }
