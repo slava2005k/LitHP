@@ -1,379 +1,418 @@
 /* Основные настройки */
 html, body {
-    overflow: hidden;
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Exo 2', sans-serif;
-    background-color: rgb(0, 29, 29);
-    color: #ececec;
-    scroll-behavior: smooth;
-    background-size: cover;
+  display: flex;
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Exo 2', sans-serif;
+  background-color: rgb(0, 29, 29);
+  color: #ececec;
+  scroll-behavior: smooth;
+  background-size: cover;
+  justify-content: space-between;
+  align-content: flex-start;
 }
 
 /* Шапка сайта */
 .site-header {
-    text-align: left;
-    width: 100%;
-    display: flex;
-    position: fixed;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    z-index: 5;
-    transition: all 0.5s ease-in-out;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1),
-                0px 3px 4px rgba(0, 0, 0, 0.2), 
-                0px 5px 8px rgba(0, 0, 0, 0.3), 
-                0px 9px 16px rgba(0, 0, 0, 0.4);
-    padding: 10px 20px; /* Отступы для удобства */
-    align-items: center;
-    justify-content: space-around;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  transition: all 0.5s ease-in-out;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1),
+              0px 3px 4px rgba(0, 0, 0, 0.2), 
+              0px 5px 8px rgba(0, 0, 0, 0.3), 
+              0px 9px 16px rgba(0, 0, 0, 0.4);
+  padding: 10px 20px; /* Отступы для удобства */
+  align-items: center;
+  justify-content: space-around;
+  z-index: 10;
 }
 
 .navbar ul{
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap; /* Разрешаем перенос строк */
-    margin: 0;
-    padding: 0;
-    text-align: center; /* Выравниваем текст по центру */
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap; /* Разрешаем перенос строк */
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Выравниваем текст по центру */
 }
 
 .navbar a, nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-family: 'Exo 2', sans-serif;
-    font-weight: bold;
-    padding: 5px 10px; /* Внутренние отступы для удобства */
-    text-align: center;
-    word-wrap: break-word; /* Разрешаем разрыв текста, если он слишком длинный */
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: bold;
+  padding: 5px 10px; /* Внутренние отступы для удобства */
+  text-align: center;
+  word-wrap: break-word; /* Разрешаем разрыв текста, если он слишком длинный */
 }
 
 .navbar a:hover, nav a:hover {
-    color: #00ffb3;
-    text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
-    transform: scale(1.05);
+  color: #00ffb3;
+  text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
+  transform: scale(1.05);
 }
 
 /* Мигающий текст */
-  .glowing {
-    display: flex;
-    margin-right: 10%;
-    align-items: center;
-  }
-  .glowing-text{
-    color: #ffffff;
-    text-shadow: 0 0 15px #ffffff;
-    font-family: 'Rubik Vinyl', bold;
-    font-weight: bold;
-    text-decoration: none;
+.glowing {
+  display: flex;
+  margin-right: 10%;
+  align-items: center;
+}
+.glowing-text{
+  color: #ffffff;
+  text-shadow: 0 0 15px #ffffff;
+  font-family: 'Rubik Vinyl', bold;
+  font-weight: bold;
+  text-decoration: none;
 
-    animation: glowing 6s linear infinite;
-  }
-  .glowing-text:hover{
-    text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
-    animation: none;
-  }
-  .glowing-text.broken {
-    color: #444; /* Выключенный текст */
-    text-shadow: none;
-    animation: brok 0.1s linear; /* Эффект искр */
-  }
-  .glowing img{
-    cursor: pointer;
-    margin-top:0.45vw;
-    margin-right: 5px;
-    transition: transform 0.3s ease;
-  }
+  animation: glowing 6s linear infinite;
+}
+.glowing-text:hover{
+  text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
+  animation: none;
+}
+.glowing-text.broken {
+  color: #444; /* Выключенный текст */
+  text-shadow: none;
+  animation: brok 0.1s linear; /* Эффект искр */
+}
+.glowing img{
+  cursor: pointer;
+  margin-top:0.45vw;
+  margin-right: 5px;
+  transition: transform 0.3s ease;
+}
 .glowing img.clicked {
-  transform: scale(1.2);
-  transition: transform 0.1s ease;
+transform: scale(1.2);
+transition: transform 0.1s ease;
 }
-  .faulty-letter-l {
-    opacity: 0.5;
-    animation: faulty-flicker 2s linear infinite;
-  }
-
-  .faulty-letter-e {
-    opacity: 0.5;
-    animation: faulty-flicker 1.5s linear infinite;
-  }
-
-  .faulty-letter-a {
-    opacity: 0.5;
-    animation: faulty-flicker 2.5s linear infinite;
-  }
-
-  @keyframes glowing{
-    0%{
-      opacity: 0;
-      color: #ffffff;
-      text-shadow: 0 0 15px #ffffff;
-      filter: blur(0.5px);
-    }
-    2% {
-      opacity: 0.5;
-    }
-    4% {
-      opacity: 1;
-      filter: blur(2px);
-    }
-    6%{
-      opacity: 0;
-      filter: blur(0.5px);
-    }
-    20%{
-      opacity: 1;
-      color: #dbdbdb;
-      text-shadow: 0 0 5px #ffffff;
-    }
-    50%{
-      opacity: 1;
-      color: #ffffff;
-      text-shadow: 0 0 15px #ffffff;
-    }
-    90%{
-      opacity: 1;
-    }
-    92%{
-      opacity: 0;
-      filter: blur(0.5px);
-    }
-    93%{
-      opacity: 1;
-      filter: blur(2px);
-    }
-    98%{
-      opacity: 1;
-      filter: blur(0.5px);
-    }
-    100%{
-      opacity: 0;
-    }
-  }
-  @keyframes faulty-flicker {
-    0% {
-      opacity: 0.1;
-    }
-    2% {
-      opacity: 0.1;
-    }
-    4% {
-      opacity: 0.5;
-    }
-    19% {
-      opacity: 0.5;
-    }
-    21% {
-      opacity: 0.1;
-    }
-    23% {
-      opacity: 1;
-    }
-    80% {
-      opacity: 0.5;
-    }
-    83% {
-      opacity: 0.4;
-    }
-    87% {
-      opacity: 1;
-    }
-  }
-/* Анимация потухания */
-@keyframes brok {
-  0%, 100% {
-    text-shadow: 
-      0 0 5px #fff, 
-      0 0 10px #fff;
-  }
-  5% {
-    text-shadow: 
-      0 0 30px #fff;
-  }
+.faulty-letter-l {
+  opacity: 0.5;
+  animation: faulty-flicker 2s linear infinite;
 }
+
+.faulty-letter-e {
+  opacity: 0.5;
+  animation: faulty-flicker 1.5s linear infinite;
+}
+
+.faulty-letter-a {
+  opacity: 0.5;
+  animation: faulty-flicker 2.5s linear infinite;
+}
+
+
 /* Блоки сайта */
+.blocks{display: flex;flex-direction: column;align-items: stretch;flex-wrap: nowrap;align-content: center;justify-content: space-between;}
+
 .block {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    opacity: 0;
-    transform: translateY(-50px);
-    position: relative;
-    height: 75vh;
-    width: 75%;
-    margin: 50px auto;
-    margin-top: 30%;
-    padding: 20px;
-    background: linear-gradient(329deg, rgba(100,0,30,0.5) 30%, rgba(100,0,30,0.1) 100%);
-    border-radius: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    text-align: center;
-    box-shadow: 0px 1px 2px rgba(0, 0 , 0, 0.1),
-                0px 3px 4px rgba(0, 0 , 0, 0.2), 
-                0px 5px 8px rgba(0, 0 , 0, 0.3), 
-                0px 9px 16px rgba(0, 0 , 0, 0.4);
-    transition: box-shadow 0.5s ease-out, scale 0.5s ease-out, opacity 0.8s, transform 0.8s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  position: fixed;
+  width: 75%;
+  margin: 8vw 10vw 0px;
+  padding: 20px;
+  background: linear-gradient(320deg, rgba(0,5,0,0.35) 10%, rgba(0,5,0,0.2) 100%);
+  border-radius: 50px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  text-align: justify;
+  box-shadow: 0px 1px 2px rgba(0, 0 , 0, 0.1),
+              0px 3px 4px rgba(0, 0 , 0, 0.2), 
+              0px 5px 8px rgba(0, 0 , 0, 0.3), 
+              0px 9px 16px rgba(0, 0 , 0, 0.4);
+  transition: box-shadow 0.5s ease-out, scale 0.5s ease-out, opacity 0.8s ease-in, transform 0.8s ease-out;
 }
 .block:hover {
-    box-shadow: 0px 1px 2px rgba(0, 0 , 0, 0.1),
-    0px 6px 9px rgba(0, 0 , 0, 0.2), 
-    0px 10px 13px rgba(0, 0 , 0, 0.3), 
-    0px 14px 21px rgba(0, 0 , 0, 0.4);
-    scale: 105%;
+  box-shadow: 0px 1px 2px rgba(0, 0 , 0, 0.1),
+  0px 6px 9px rgba(0, 0 , 0, 0.2), 
+  0px 10px 13px rgba(0, 0 , 0, 0.3), 
+  0px 14px 21px rgba(0, 0 , 0, 0.4);
+  scale: 105%;
 }
 
 .block.visible {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  z-index: 5;
 }
 
 .block.hidden {
-    opacity: 0;
-    transform: translateY(-50px);
+  transform: translate(0px, 80%);
+  opacity: 0;
+  z-index: 1;
+  scale: 95%;
 }
 
 .block a{
-  text-decoration: none;
-  color: firebrick;
+text-decoration: none;
+color: #2f60b9;
 }
 .block a:hover{
-  text-decoration: underline;
+text-decoration: underline;
 }
 /* Заголовки и текст внутри блока */
 h2 {
-    text-align: center;
-    transition: text-shadow 0.01s, opacity 0.1s;
-    font-family: 'Rubik Vinyl', bold;
-    font-size: 3vw;
-    text-shadow: 0 0 10px #ccff00, 0 0 30px #ccff00, 0 0 35px #00ffb3;
-}
-
-p, tbody{
-    font-family: 'Exo 2', sans-serif;
-    font-size: 1.6vw;
-    line-height: 1.6;
-    max-width: 70vw;
-    margin: 0 auto;
-}
-
-.copyIP{
-  font-family: 'Exo 2', sans-serif;
-  font-size: 1.6vw;
-  max-width: 30vw;
-  align-self: start;
-  margin-top: 1%;
   text-align: center;
-  color: firebrick;
-  padding:6px;
-	text-decoration:none;
+  transition: text-shadow 0.01s, opacity 0.1s;
+  font-family: 'Rubik Vinyl', bold;
+  font-size: 3vw;
+  text-shadow: 0 0 10px #ccff00, 0 0 20px #ccff00, 0 0 35px #00ffb3;
+}
+h3{
+  display: flex;
+  text-align: left;
+  font-family: 'Rubik Vinyl', bold;
+  flex-direction: row;
+}
+p, tbody{
+  font-family: 'Exo 2', sans-serif;
+  max-width: 70vw;
+  margin: auto;
+}
+.bold{
+  font-weight: bold;
+  text-shadow: 1px 1px 20px #ccff00;
+  color: #ccff00;
+}
+.copyIP{
+  text-align: center;
+  align-self: center;
+  font-family: 'Exo 2', sans-serif;
+  width: inherit;
+  max-width: 200vw;
+  margin: inherit;
+  font-weight: bold;
+  color: #00ff6a;
+  text-shadow: 1px 1px 10px #00ff6a;
+  padding: 12px;
   cursor: pointer;
   background-color: rgba(0,0,0,0);
-  border: 3px none;
-  border-radius: 5%;
-  transition: 1s ease-in-out;
+  border: none;
+  border-radius: 11%;
+  transition: text-shadow 0.3s ease;
+  flex-direction: row;
 }
 .copyIP:hover{
-  border-radius: 10%;
-  text-decoration: underline;
-  background-color: rgba(0,0,0,0.1);
+  text-shadow: 1px 1px 20px #00ff6a;
 }
 .copyIP:active{
-    position:relative;
-    top:2px;
+  position:relative;
+  top:2px;
 }
 /*Таблицы*/
 .players{
-  margin-top: 10vw;
+margin-top: 10vw;
 }
 
 table {
-  background-color: #0000005b;
-  width: 60%;
-  margin: 20px auto;
-  border-collapse: collapse;
+background-color: #0000005b;
+width: 60%;
+margin: 20px auto;
+border-collapse: collapse;
 }
 th, td {
-  padding: 10px;
-  border: 3px solid rgb(255, 255, 255);
-  box-shadow: 0 0 10px #ccff00, 0 0 3px #ccff00, 0 0 3px #00ffb3;
+padding: 10px;
+border: 3px solid rgb(255, 255, 255);
+box-shadow: 0 0 10px #ccff00, 0 0 3px #ccff00, 0 0 3px #00ffb3;
 }
 th {
-  background-color: #0000005b;
+background-color: #0000005b;
 }
 .uptime{
-  text-align: center;
+text-align: center;
+}
+@keyframes glowing{
+  0%{
+    opacity: 0;
+    color: #ffffff;
+    text-shadow: 0 0 15px #ffffff;
+    filter: blur(0.5px);
+  }
+  2% {
+    opacity: 0.5;
+  }
+  4% {
+    opacity: 1;
+    filter: blur(2px);
+  }
+  6%{
+    opacity: 0;
+    filter: blur(0.5px);
+  }
+  20%{
+    opacity: 1;
+    color: #dbdbdb;
+    text-shadow: 0 0 5px #ffffff;
+  }
+  50%{
+    opacity: 1;
+    color: #ffffff;
+    text-shadow: 0 0 15px #ffffff;
+  }
+  90%{
+    opacity: 1;
+  }
+  92%{
+    opacity: 0;
+    filter: blur(0.5px);
+  }
+  93%{
+    opacity: 1;
+    filter: blur(2px);
+  }
+  98%{
+    opacity: 1;
+    filter: blur(0.5px);
+  }
+  100%{
+    opacity: 0;
+  }
+}
+@keyframes faulty-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 0.1;
+  }
+  4% {
+    opacity: 0.5;
+  }
+  19% {
+    opacity: 0.5;
+  }
+  21% {
+    opacity: 0.1;
+  }
+  23% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  83% {
+    opacity: 0.4;
+  }
+  87% {
+    opacity: 1;
+  }
+}
+/* Анимация потухания */
+@keyframes brok {
+0%, 100% {
+  text-shadow: 
+    0 0 5px #fff, 
+    0 0 10px #fff;
+}
+5% {
+  text-shadow: 
+    0 0 30px #fff;
+}
 }
 
 /* Оптимизация для телефонов */
-@media (orientation: portrait){
-    .site-header{
-        padding: 0px 0px;
-        justify-content: flex-start;
-    }
-    nav{
-      margin-left: 5vw;
-    }    
-    .navbar ul {
-        display: none; 
-    }
-    nav a{
-        padding: 5px 5px;
-        margin-left: 0px;
-        margin-right: 0px;
-        font-size: 2vw;
-    }
-
-    .glowing {
-        margin-right: 0%;
-    }
-    .block {
-        width: 90%;
-        padding: 0px;
-    }
-
-    .block h2 {
-        font-size: 7vw;
-    }
-
-    .block p {
-        font-size: 3.5vw;
-        text-align: left;
-    }
-    .glowing img{
-        width: 7vw;
-        height: 7vw;
-      }
+@media (max-width: 767px){
+  .navbar{
+    display: none;
+  }
+  .glowing-text{
+    font-size: 3vw;
+  }
+  .glowing img{
+    width: 6vw;
+    height: 6vw;
+  }
+  .block{
+    height: 85vh;
+    transform: translateY(3vh);
+  }
+  h2{
+    font-size: 4vh;
+  }
+  p{
+    font-size: 2vh;
+    line-height: 3vh;
+    text-align: left;
+  }
+  .block a{
+    font-size: 2vh;
+  }
+  .copyIP{
+    font-size: 2.5vh;
+  }
+}
+@media (min-width: 767px){
+  .navbar{
+    display: flex;
+  }
+  .glowing-text{
+    font-size: 3vw;
+  }
+  .glowing img{
+    width: 6vw;
+    height: 6vw;
+  }
+  .block{
+    height: 85vh;
+    transform: translateY(3vh);
+  }
+  h2{
+    font-size: 5vh;
+  }
+  p{
+    font-size: 3vh;
+    line-height: 3.2vh;
+    text-align: left;
+  }
+  .block a{
+    font-size: 3vh;
+  }
+  .copyIP{
+    font-size: 3.5vh;
+  }
 }
 @media (orientation: landscape) {
-    .site-header{
-        height: auto;
-    }
-    nav a{
-        font-size: 1vw;
-    }
-    .block p{
-        text-align: justify;
-    }
-    .glowing{
-        font-size: 2vw;
-    }
-    .glowing img{
-        width: 3vw;
-        height: 3vw;
-    }
-}
-@media (max-width: 495px) {
-
-    .block{
-        margin-top: 100vh;
-        top: 0px;
-    }
-    .glowing-txt img{
-        width: 12vw;
-        height: 12vw;
-      }
+  .site-header{
+      height: auto;
+  }
+  .glowing-text{
+    font-size: 2vw;
+  }
+  nav a{
+    font-size: 1vw;
+  }
+  h2{
+    font-size: 3vw;
+  }
+  p{
+    font-size: 3vh;
+    line-height: 4vh;
+    text-align: justify;
+  }
+  .block{
+    height: 75vh;
+    transform: translateY(0px);
+  }
+  .block a{
+    font-size: 1.6vw;
+  }
+  .glowing{
+      font-size: 2vw;
+  }
+  .glowing img{
+      width: 3vw;
+      height: 3vw;
+  }
+  .copyIP{
+    font-size: 2vw;
+  }
 }
