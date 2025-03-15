@@ -11,6 +11,7 @@ html, body {
   background-size: cover;
   justify-content: space-between;
   align-content: flex-start;
+  flex-wrap: wrap;
 }
 
 /* Шапка сайта */
@@ -29,8 +30,10 @@ html, body {
               0px 9px 16px rgba(0, 0, 0, 0.4);
   padding: 10px 20px; /* Отступы для удобства */
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   z-index: 10;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
 .navbar ul{
@@ -48,7 +51,7 @@ html, body {
   text-decoration: none;
   font-family: 'Exo 2', sans-serif;
   font-weight: bold;
-  padding: 5px 10px; /* Внутренние отступы для удобства */
+  padding: 5px 20px; /* Внутренние отступы для удобства */
   text-align: center;
   word-wrap: break-word; /* Разрешаем разрыв текста, если он слишком длинный */
 }
@@ -71,7 +74,7 @@ html, body {
   font-family: 'Rubik Vinyl', bold;
   font-weight: bold;
   text-decoration: none;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1rem, 4vw, 3rem);
   animation: glowing 6s linear infinite;
 }
 .glowing-text:hover{
@@ -87,8 +90,8 @@ html, body {
   cursor: pointer;
   margin-top:0.45vw;
   margin-right: 5px;
-  width: clamp(2.5rem, 5vw, 5rem);
-  height: clamp(2.5rem, 5vw, 5rem);
+  width: clamp(2rem, 5vw, 5rem);
+  height: clamp(2rem, 5vw, 5rem);
   transition: transform 0.3s ease;
 }
 .glowing img.clicked {
@@ -112,12 +115,13 @@ transition: transform 0.1s ease;
 
 
 /* Блоки сайта */
-.blocks{display: flex;flex-direction: column;align-items: stretch;flex-wrap: nowrap;align-content: center;justify-content: space-between;}
+.blocks{display: flex;flex-direction: column;align-items: stretch;flex-wrap: wrap;justify-content: space-between;align-content: center;}
 
 .block {
+  align-self: anchor-center;
   opacity: 0;
   position: fixed;
-  width: 75%;
+  /* width: 75%; */
   margin: 8vw 10vw 0px;
   padding: 20px;
   background: linear-gradient(320deg, rgba(0,5,0,0.35) 10%, rgba(0,5,0,0.2) 100%);
@@ -155,7 +159,7 @@ transition: transform 0.1s ease;
   position: absolute;
   scale: 0.8;
   z-index: -10;
-  mix-blend-mode: lighten;
+  mix-blend-mode: difference;
 }
 .left-img{
   animation: totop-l 2s ease-in-out infinite;
@@ -364,7 +368,7 @@ text-align: center;
   }
   .block{
     height: 80vh;
-    transform: translateY(3vh);
+    /* transform: translateY(3vh); */
   }
   .block img{
     top: 200px;
@@ -389,11 +393,9 @@ text-align: center;
     display: flex;
   }
   .block{
-    height: 80vh;
-    transform: translateY(3vh);
-  }
-  .block img{
-    top: 200px;
+    height: 70vh;
+    /* transform: translateY(6vh); */
+    /* align-self: anchor-center; */
   }
   h2{
     font-size: 5vh;
@@ -422,7 +424,8 @@ text-align: center;
   }
   .block{
     height: 75vh;
-    transform: translateY(0px);
+    width: 75%;
+    transform: translateY(-4vh);
   }
   .block img{
     top: 0px;
