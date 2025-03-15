@@ -74,7 +74,7 @@ html, body {
   font-family: 'Rubik Vinyl', bold;
   font-weight: bold;
   text-decoration: none;
-  font-size: clamp(1rem, 4vw, 3rem);
+  font-size: clamp(0.75rem, 3vw, 2rem);
   animation: glowing 6s linear infinite;
 }
 .glowing-text:hover{
@@ -90,8 +90,8 @@ html, body {
   cursor: pointer;
   margin-top:0.45vw;
   margin-right: 5px;
-  width: clamp(2rem, 5vw, 5rem);
-  height: clamp(2rem, 5vw, 5rem);
+  width: clamp(2rem, 4vw, 3.5rem);
+  height: clamp(2rem, 4vw, 3.5rem);
   transition: transform 0.3s ease;
 }
 .glowing img.clicked {
@@ -157,7 +157,7 @@ transition: transform 0.1s ease;
 }
 .block img{
   position: absolute;
-  scale: 0.8;
+  /* scale: 0.8; */
   z-index: -10;
   mix-blend-mode: difference;
 }
@@ -169,7 +169,7 @@ transition: transform 0.1s ease;
   animation: totop-r 2s ease-in-out infinite;
 }
 .block a{
-  font-size: clamp(1rem, 3vw, 2.5rem);
+  /* font-size: clamp(1rem, 2.5vw, 2.5rem); */
   text-decoration: none;
   color: #2f60b9;
 }
@@ -192,7 +192,7 @@ h3{
 }
 p, tbody{
   position: relative;
-  font-size: clamp(1rem, 3vw, 2.5rem);
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
   font-family: 'Exo 2', sans-serif;
   max-width: 70vw;
   margin: auto;
@@ -341,13 +341,13 @@ text-align: center;
 }
 @keyframes totop-l {
   0% {
-    transform: translate(-40vh, 30%) translateY(0);
+    transform: translate(-40vh, 10%) translateY(0);
   }
   50% {
-    transform: translate(-40vh, 30%) translateY(-10px);
+    transform: translate(-40vh, 10%) translateY(-10px);
   }
   100% {
-    transform: translate(-40vh, 30%) translateY(0);
+    transform: translate(-40vh, 10%) translateY(0);
   }
 }
 @keyframes totop-r {
@@ -367,12 +367,11 @@ text-align: center;
     display: none;
   }
   .block{
-    height: 80vh;
+    height: auto;
     /* transform: translateY(3vh); */
   }
-  .block img{
-    top: 200px;
-    scale: 0.6;
+ .block img{
+  display: none;
   }
   .left-img{
     left: -150px;
@@ -397,6 +396,7 @@ text-align: center;
     /* transform: translateY(6vh); */
     /* align-self: anchor-center; */
   }
+
   h2{
     font-size: 5vh;
   }
