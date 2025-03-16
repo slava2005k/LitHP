@@ -1,5 +1,5 @@
 // Инициализация переменных
-const sections = document.querySelectorAll('.block');
+const sections = document.querySelectorAll('.sel');
 const links = document.querySelectorAll('.navbar a');
 let currentIndex = 0;
 let isScrolling = false;

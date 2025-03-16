@@ -116,12 +116,40 @@ transition: transform 0.1s ease;
 
 /* Блоки сайта */
 .blocks{display: flex;flex-direction: column;align-items: stretch;flex-wrap: wrap;justify-content: space-between;align-content: center;}
+.sel{
+  opacity: 0;
+  position: fixed;
+
+  transition: scale 0.5s ease-out, opacity 0.8s ease-in, transform 0.8s ease-out;
+}
+.sel.visible {
+  opacity: 1;
+  z-index: 5;
+}
+.sel.hidden {
+  transform: translate(0px, 80%);
+  opacity: 0;
+  z-index: 1;
+  scale: 95%;
+}
+.sel img{
+  opacity: 0.8;
+  position: absolute;
+  z-index: 10;
+  transition: transform 0.5s ease-in-out;
+}
+.left-img{
+  bottom: -15%;
+  animation: totop-l 2s ease-in-out infinite;
+}
+.right-img{
+  left: 45%;
+  bottom: -20%;
+  animation: totop-r 2s ease-in-out infinite;
+}
 
 .block {
   align-self: anchor-center;
-  opacity: 0;
-  position: fixed;
-  /* width: 75%; */
   margin: 8vw 10vw 0px;
   padding: 20px;
   background: linear-gradient(320deg, rgba(0,5,0,0.35) 10%, rgba(0,5,0,0.2) 100%);
@@ -134,49 +162,9 @@ transition: transform 0.1s ease;
               0px 3px 4px rgba(0, 0 , 0, 0.2), 
               0px 5px 8px rgba(0, 0 , 0, 0.3), 
               0px 9px 16px rgba(0, 0 , 0, 0.4);
-  transition: box-shadow 0.5s ease-out, scale 0.5s ease-out, opacity 0.8s ease-in, transform 0.8s ease-out;
-}
-.block:hover {
-  box-shadow: 0px 1px 2px rgba(0, 0 , 0, 0.1),
-  0px 6px 9px rgba(0, 0 , 0, 0.2), 
-  0px 10px 13px rgba(0, 0 , 0, 0.3), 
-  0px 14px 21px rgba(0, 0 , 0, 0.4);
-  scale: 105%;
 }
 
-.block.visible {
-  opacity: 1;
-  z-index: 5;
-}
-
-.block.hidden {
-  transform: translate(0px, 80%);
-  opacity: 0;
-  z-index: 1;
-  scale: 95%;
-}
-.blocks img{
-  /* scale: 0.6; */
-  /* height: auto; */
-  opacity: 0.8;
-  position: fixed;
-  /* mix-blend-mode: revert; */
-  /* display: flex; */
-  /* justify-content: flex-start; */
-  z-index: 10;
-}
-.left-img{
-  /* width: 100vw; */
-  bottom: -2vh;
-  animation: totop-l 2s ease-in-out infinite;
-  height: 35vw;
-}
-.right-img{
-  display: none;
-  animation: totop-r 2s ease-in-out infinite;
-}
 .block a{
-  /* font-size: clamp(1rem, 2.5vw, 2.5rem); */
   text-decoration: none;
   color: #2f60b9;
 }
@@ -185,6 +173,7 @@ text-decoration: underline;
 }
 /* Заголовки и текст внутри блока */
 h2 {
+  overflow: visible;
   text-align: center;
   transition: text-shadow 0.01s, opacity 0.1s;
   font-family: 'Rubik Vinyl', bold;
@@ -236,10 +225,9 @@ p, tbody{
   position:relative;
   top:2px;
 }
-/*Таблицы*/
-.players{
-margin-top: 10vw;
-}
+
+/* Таблицы */
+.players{width: 100vw;overflow: visible;align-items: center;display: flex;margin-top: 15vw;flex-direction: column;}
 
 table {
 background-color: #0000005b;
@@ -346,6 +334,17 @@ text-align: center;
     0 0 30px #fff;
 }
 }
+@keyframes totop {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 @keyframes totop-l {
   0% {
     transform: translateY(0);
@@ -359,13 +358,13 @@ text-align: center;
 }
 @keyframes totop-r {
   0% {
-    transform: translate(40vw, 30%) translateY(0);
+    transform: translateY(0);
   }
   50% {
-    transform: translate(40w, 30%) translateY(-10px);
+    transform: translateY(-10px);
   }
   100% {
-    transform: translate(40vw, 30%) translateY(0);
+    transform: translateY(0);
   }
 }
 /* Оптимизация для телефонов */
@@ -373,9 +372,18 @@ text-align: center;
   .navbar{
     display: none;
   }
+  .left-img{
+    height: 120vw;
+    top: 100%;
+  }
+  .right-img{
+    height: 120vw;
+    left: 50%;
+    top: 100%;
+  }
   .block{
     height: auto;
-    /* transform: translateY(3vh); */
+    margin-top: 25%;
   }
   h2{
     font-size: 3vh;
@@ -392,12 +400,19 @@ text-align: center;
   .navbar{
     display: flex;
   }
+  .left-img{
+    height: 60vw;
+    top: 60%;
+  }
+  .right-img{
+    display: none;
+    height: 60vw;
+    left: auto;
+    top: 60%;
+  }
   .block{
     height: 70vh;
-    /* transform: translateY(6vh); */
-    /* align-self: anchor-center; */
   }
-
   h2{
     font-size: 3vh;
   }
@@ -407,6 +422,25 @@ text-align: center;
   }
   .copyIP{
     font-size: 3.5vh;
+  }
+}
+@media ((orientation: portrait) and (max-height: 1500px)){
+  .sel img{
+    top: 85%;
+  }
+}
+@media ((orientation: portrait) and (max-height: 850px)){
+  .sel img{
+    top: 80%;
+  }
+}
+@media ((orientation: portrait) and (max-height: 500px)){
+  .sel img{
+    display: none;
+  }
+  p{
+    line-height: 2.5vh;
+    overflow: auto;
   }
 }
 @media (orientation: landscape) {
@@ -423,6 +457,15 @@ text-align: center;
     line-height: 4vh;
     text-align: justify;
   }
+  .left-img{
+    height: 35vw;
+    top: auto;
+  }
+  .right-img{
+  display: none;
+  height: 35vw;
+  top: auto;
+}
   .block{
     height: 75vh;
     width: 75%;
