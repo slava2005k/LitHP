@@ -227,8 +227,14 @@ p, tbody{
 }
 
 /* Таблицы */
-.players{width: 100vw;overflow: visible;align-items: center;display: flex;margin-top: 15vw;flex-direction: column;}
-
+.players{
+  display: flex;
+  width: 100vw;
+  overflow: scroll;
+  align-items: center;
+  margin-top: clamp(10%, 10vh, 20%);
+  flex-direction: column;
+}
 table {
 background-color: #0000005b;
 width: 60%;
