@@ -4,5 +4,6 @@
 
 ## Фишки сервера <a href="#features" id="features"></a>
 
-* [Основные ограничения](features/osnovnye-ogranicheniya.md)
-* [Отключение ферм тотемов](features/otklyuchenie-ferm-totemov.md)
+* [Основные ограничения](features/info.md)
+* [Изменения в ванильной игре](features/small_features.md)
+* [Создание меток на карте сервера](features/markers.md)
