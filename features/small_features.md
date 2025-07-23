@@ -5,7 +5,7 @@ layout:
   title:
     visible: true
   description:
-    visible: false
+    visible: true
   tableOfContents:
     visible: true
   outline:
@@ -13,7 +13,7 @@ layout:
   pagination:
     visible: true
   metadata:
-    visible: true
+    visible: false
 ---
 
 # Изменения в ванильной игре

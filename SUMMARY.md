@@ -6,4 +6,4 @@
 
 * [Основные ограничения](features/info.md)
 * [Изменения в ванильной игре](features/small_features.md)
-* [Создание меток на карте сервера](features/markers.md)
+* [Карта сервера](features/map.md)
