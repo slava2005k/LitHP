@@ -6,4 +6,7 @@
 
 * [Основные ограничения](features/info.md)
 * [Изменения в ванильной игре](features/small_features.md)
+* [Социальный рейтинг](features/rating/README.md)
+  * [Список способностей](features/rating/rating-list.md)
+* [Периоды развития](features/periody-razvitiya.md)
 * [Карта сервера](features/map.md)
