@@ -9,4 +9,5 @@
 * [Социальный рейтинг](features/rating/README.md)
   * [Список способностей](features/rating/rating-list.md)
 * [Периоды развития](features/periody-razvitiya.md)
+* [Ачивки](features/achivki.md)
 * [Карта сервера](features/map.md)
