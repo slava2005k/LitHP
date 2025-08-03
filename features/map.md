@@ -13,8 +13,9 @@ layout:
   pagination:
     visible: true
   metadata:
-    visible: true
+    visible: false
 ---
 
-# Создание меток на карте сервера
+# Карта сервера
 
+<p align="center"><kbd><em><strong><code>Карта пока недоступна</code></strong></em></kbd></p>

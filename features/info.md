@@ -1,4 +1,5 @@
 ---
+hidden: true
 icon: message-exclamation
 layout:
   width: default
