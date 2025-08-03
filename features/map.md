@@ -18,4 +18,4 @@ layout:
 
 # Карта сервера
 
-<p align="center"><kbd><em><strong><code>Карта пока недоступна</code></strong></em></kbd></p>
+<p align="center"><kbd><em><strong>Карта пока недоступна</strong></em></kbd></p>
