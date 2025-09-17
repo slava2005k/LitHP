@@ -1,72 +1,35 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="light dark">
-    <title>LimePlay ‣ main</title>
-    <link rel="icon" href="images/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Exo+2&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LitHP state</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="images/logo.png" type="image/png">
 </head>
 <body>
-    <header class="site-header">
-        <div class="glowing">
-            <div>
-              <a><img src="images/logo.png" alt="logo"></a>
-            </div>
-              <a class="glowing-text" href="index.html" target="_top">
-                L<span class='faulty-letter-l'>I</span>M
-                <span class='faulty-letter-e'>E</span> PL
-                <span class="faulty-letter-a">A</span>Y
-              </a>
-          </div>
-        <nav class="navbar">
-            <ul>
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#how-to-play">Как играть</a></li>
-                <li><a href="#features">Фишки сервера</a></li>   
-            </ul>
-        </nav>
-        <nav>
-            <a href="players.html" target="_top">Топ игроков</a>
-            <a href="https://map-limeplay.dynmap.xyz" target="_blank">Карта сервера</a>
-        </nav>
-    </header>    
-    <main>
-        <div class="blocks">
-        <section id="about" class="sel">
-            <div class="block">
-                <h2>О нас</h2>
-                <p><span class="bold">Lime Play</span> - приближенный к ванильному выживанию сервер, со своими уникальными фишками, поддерживающий начинающих контент-мейкеров. 
-                    Именно здесь вы найдете приятное комьюнити, покоя, умиротворения и гармонии от слияния с бесконечно вечным. 
-                    Мы готовы каждого, абсолютно бесплатно, научить монтажу или стрименгу и проведем вас в мир создателей контента.</p>
-            </div>
-        </section>
-        <section id="how-to-play" class="sel">
-            <div class="block">
-                <h2>Как играть?</h2>
-                <p>Проще простого, посети наш <a href="https://discord.gg/8WZf26vHHG" target="_blank">discord</a> и заполни там заявку. Далее скачай minecraft версии сервера, 
-                    вставь скопированное ниже IP и наслаждайся игрой!<br>Если во время игры возникнут вопросы, то смело обрашайся к администрации.
-                    <br><a class="animate" href="https://discordserver.info/1344212904156598315/like" onClick="like(this); return false;">Лайкнуть Сервер</a>
-                </p>
-                <button class="copyIP" onclick="copyIP()">Скопировать IP</button>
-                    
-            </div>
-        </section>
-        <section id="features" class="sel">
-            <div class="block">
-                <h2>Фишки сервера</h2>
-                <p><span class="bold">•</span> Уникальная в своём роде, система оценивания игроков - социальный рейтинг.<br>Постройки и ивенты игроков не остаются без внимания. 
-                    Взамен за свой вклад игроки получают рейтинг, 
-                    а после достижения определенного количества, игроки награждаются уникальными "магическими" предметами.
-                    <br><span class="bold">•</span> Один сезон - три вайпа.<br>Рейтинг игрока сохранятся после вайпа, но сбрасывается после окончания сезона.
-                    <br><span class="bold">•</span> Кастомная генерация<br>Кому нужна скучная генерация?
-                    <br><span class="bold">•</span> Дополняюшие выживание дата-паки и плагины, такие как: ArmorStand Editor, BlueMap, InvisibleItemFrames, GSit и другие.</p>
-            </div>
-            </section>
-        </div>
-    </main>
+  <header><img src="images/logo.png"><div class="name">LitHP</div><div class="cent">Посети <a href="https://limeplay-community.gitbook.io/lithp-wiki"><b>wiki</b></a> и узнай больше о проекте!</div></header>
+  <div class="block"><h2>Готовность <b>бета-версии</b></h2><br></div>
+  <div class="container">
+    <div class="circle">
+      <div class="water" id="water"></div>
+      <div class="percentage" id="percentage">0%</div>
+    </div>
+  </div>
+  <div class="news">
+    <!--<h2>Последние новости</h2><br>
+    <div class="news-items">
+
+    </div>-->
+  </div>
+<footer><span>Not an official Minecraft product.</span></footer>
+<div class="mix"><img src="images/fire.gif"></div>
 </body>
+<script src="script.js"></script>
 </html>
+
+
+
+
+
+

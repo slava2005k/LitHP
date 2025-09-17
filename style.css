@@ -1,486 +1,222 @@
-/* Основные настройки */
-html, body {
-  display: flex;
-  overflow: hidden;
-  margin: 0px;
-  padding: 0px;
-  font-family: 'Exo 2', sans-serif;
-  background-color: rgb(0, 29, 29);
-  color: #ececec;
-  scroll-behavior: smooth;
-  background-size: cover;
-  justify-content: space-between;
-  align-content: flex-start;
-  flex-wrap: wrap;
-}
-
-/* Шапка сайта */
-.site-header {
-  text-align: left;
-  width: 100%;
-  display: flex;
-  position: fixed;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  transition: all 0.5s ease-in-out;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1),
-              0px 3px 4px rgba(0, 0, 0, 0.2), 
-              0px 5px 8px rgba(0, 0, 0, 0.3), 
-              0px 9px 16px rgba(0, 0, 0, 0.4);
-  padding: 10px 20px; /* Отступы для удобства */
-  align-items: center;
-  justify-content: space-evenly;
-  z-index: 10;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
-
-.navbar ul{
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap; /* Разрешаем перенос строк */
+* {
   margin: 0;
   padding: 0;
-  text-align: center; /* Выравниваем текст по центру */
+  box-sizing: border-box;
+  transition: all 1s ease-out;
+}
+@font-face {
+  font-family: 'Minecraft rus';
+  src: url('fonts/Minecraft-rus.otf') format('truetype');
 }
 
-.navbar a, nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-family: 'Exo 2', sans-serif;
-  font-weight: bold;
-  padding: 5px 20px; /* Внутренние отступы для удобства */
-  text-align: center;
-  word-wrap: break-word; /* Разрешаем разрыв текста, если он слишком длинный */
+body, html {
+  height: 100%;
+  background-color: rgb(16, 16, 16);
+  font-size: 4vw;
 }
 
-.navbar a:hover, nav a:hover {
-  color: #00ffb3;
-  text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
-  transform: scale(1.05);
-}
-
-/* Мигающий текст */
-.glowing {
-  display: flex;
-  margin-right: 10%;
-  align-items: center;
-}
-.glowing-text{
-  color: #ffffff;
-  text-shadow: 0 0 15px #ffffff;
-  font-family: 'Rubik Vinyl', bold;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: clamp(0.75rem, 3vw, 2rem);
-  animation: glowing 6s linear infinite;
-}
-.glowing-text:hover{
-  text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
-  animation: none;
-}
-.glowing-text.broken {
-  color: #444; /* Выключенный текст */
-  text-shadow: none;
-  animation: brok 0.1s linear; /* Эффект искр */
-}
-.glowing img{
-  cursor: pointer;
-  margin-top:0.45vw;
-  margin-right: 5px;
-  width: clamp(2rem, 4vw, 3.5rem);
-  height: clamp(2rem, 4vw, 3.5rem);
-  transition: transform 0.3s ease;
-}
-.glowing img.clicked {
-transform: scale(1.2);
-transition: transform 0.1s ease;
-}
-.faulty-letter-l {
-  opacity: 0.5;
-  animation: faulty-flicker 2s linear infinite;
-}
-
-.faulty-letter-e {
-  opacity: 0.5;
-  animation: faulty-flicker 1.5s linear infinite;
-}
-
-.faulty-letter-a {
-  opacity: 0.5;
-  animation: faulty-flicker 2.5s linear infinite;
-}
-
-
-/* Блоки сайта */
-.blocks{display: flex;flex-direction: column;align-items: stretch;flex-wrap: wrap;justify-content: space-between;align-content: center;}
-.sel{
-  opacity: 0;
-  position: fixed;
-
-  transition: scale 0.5s ease-out, opacity 0.8s ease-in, transform 0.8s ease-out;
-}
-.sel.visible {
-  opacity: 1;
-  z-index: 5;
-}
-.sel.hidden {
-  transform: translate(0px, 80%);
-  opacity: 0;
-  z-index: 1;
-  scale: 95%;
-}
-.sel img{
-  opacity: 0.8;
-  position: absolute;
-  z-index: 10;
-  transition: transform 0.5s ease-in-out;
-}
-.left-img{
-  bottom: -15%;
-  animation: totop-l 2s ease-in-out infinite;
-}
-.right-img{
-  left: 45%;
-  bottom: -20%;
-  animation: totop-r 2s ease-in-out infinite;
-}
-
-.block {
-  align-self: anchor-center;
-  margin: 8vw 10vw 0px;
-  padding: 20px;
-  background: linear-gradient(320deg, rgba(0,5,0,0.35) 10%, rgba(0,5,0,0.2) 100%);
-  border-radius: 50px;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  text-align: justify;
-  box-shadow: 0px 1px 2px rgba(0, 0 , 0, 0.1),
-              0px 3px 4px rgba(0, 0 , 0, 0.2), 
-              0px 5px 8px rgba(0, 0 , 0, 0.3), 
-              0px 9px 16px rgba(0, 0 , 0, 0.4);
-}
-
-.block a{
-  text-decoration: none;
-  color: #2f60b9;
-}
-.block a:hover{
-text-decoration: underline;
-}
-/* Заголовки и текст внутри блока */
-h2 {
-  overflow: visible;
-  text-align: center;
-  transition: text-shadow 0.01s, opacity 0.1s;
-  font-family: 'Rubik Vinyl', bold;
-  font-size: 3vw;
-  text-shadow: 0 0 10px #ccff00, 0 0 20px #ccff00, 0 0 35px #00ffb3;
-}
-h3{
-  display: flex;
-  text-align: left;
-  font-family: 'Rubik Vinyl', bold;
-  flex-direction: row;
-}
-p, tbody{
-  position: relative;
-  font-size: clamp(1rem, 2vw, 2.5rem);
-  font-family: 'Exo 2', sans-serif;
-  max-width: 70vw;
-  margin: auto;
-  word-wrap: break-word;
-  overflow: visible;
-}
-.bold{
-  font-weight: bold;
-  text-shadow: 1px 1px 20px #ccff00;
-  color: #ccff00;
-}
-.copyIP{
-  text-align: center;
-  align-self: center;
-  font-family: 'Exo 2', sans-serif;
-  width: inherit;
-  max-width: 200vw;
-  margin: inherit;
-  font-weight: bold;
-  color: #00ff6a;
-  text-shadow: 1px 1px 10px #00ff6a;
-  padding: 12px;
-  cursor: pointer;
-  background-color: rgba(0,0,0,0);
-  border: none;
-  border-radius: 11%;
-  transition: text-shadow 0.3s ease;
-  flex-direction: row;
-}
-.copyIP:hover{
-  text-shadow: 1px 1px 20px #00ff6a;
-}
-.copyIP:active{
-  position:relative;
-  top:2px;
-}
-
-/* Таблицы */
-.players{
-  display: flex;
-  width: 100vw;
-  overflow: vizible;
-  align-items: center;
-  margin-top: clamp(10%, 10vh, 20%);
-  flex-direction: column;
-}
-table {
-background-color: #0000005b;
-width: 60%;
-margin: 20px auto;
-border-collapse: collapse;
-}
-th, td {
-padding: 10px;
-border: 3px solid rgb(255, 255, 255);
-box-shadow: 0 0 10px #ccff00, 0 0 3px #ccff00, 0 0 3px #00ffb3;
-}
-th {
-background-color: #0000005b;
-}
-.uptime{
-text-align: center;
-}
-@keyframes glowing{
-  0%{
-    opacity: 0;
-    color: #ffffff;
-    text-shadow: 0 0 15px #ffffff;
-    filter: blur(0.5px);
-  }
-  2% {
-    opacity: 0.5;
-  }
-  4% {
-    opacity: 1;
-    filter: blur(2px);
-  }
-  6%{
-    opacity: 0;
-    filter: blur(0.5px);
-  }
-  20%{
-    opacity: 1;
-    color: #dbdbdb;
-    text-shadow: 0 0 5px #ffffff;
-  }
-  50%{
-    opacity: 1;
-    color: #ffffff;
-    text-shadow: 0 0 15px #ffffff;
-  }
-  90%{
-    opacity: 1;
-  }
-  92%{
-    opacity: 0;
-    filter: blur(0.5px);
-  }
-  93%{
-    opacity: 1;
-    filter: blur(2px);
-  }
-  98%{
-    opacity: 1;
-    filter: blur(0.5px);
-  }
-  100%{
-    opacity: 0;
-  }
-}
-@keyframes faulty-flicker {
-  0% {
-    opacity: 0.1;
-  }
-  2% {
-    opacity: 0.1;
-  }
-  4% {
-    opacity: 0.5;
-  }
-  19% {
-    opacity: 0.5;
-  }
-  21% {
-    opacity: 0.1;
-  }
-  23% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 0.5;
-  }
-  83% {
-    opacity: 0.4;
-  }
-  87% {
-    opacity: 1;
-  }
-}
-/* Анимация потухания */
-@keyframes brok {
-0%, 100% {
-  text-shadow: 
-    0 0 5px #fff, 
-    0 0 10px #fff;
-}
-5% {
-  text-shadow: 
-    0 0 30px #fff;
-}
-}
-@keyframes totop {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-100px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-@keyframes totop-l {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-@keyframes totop-r {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-/* Оптимизация для телефонов */
-@media (max-width: 767px){
-  .navbar{
-    display: none;
-  }
-  .left-img{
-    height: 120vw;
-    top: 100%;
-  }
-  .right-img{
-    height: 120vw;
-    left: 50%;
-    top: 100%;
-  }
-  .block{
-    height: auto;
-    margin-top: 25%;
-  }
-  h2{
-    font-size: 3vh;
-  }
-  p{
-    line-height: 3vh;
-    text-align: left;
-  }
-  .copyIP{
-    font-size: 2.5vh;
-  }
-}
-@media (min-width: 767px){
-  .navbar{
+.container {
+    justify-content: space-evenly;
+    align-items: flex-end;
     display: flex;
-  }
-  .left-img{
-    height: 60vw;
-    top: 60%;
-  }
-  .right-img{
-    display: none;
-    height: 60vw;
-    left: auto;
-    top: 60%;
-  }
-  .block{
-    height: 70vh;
-  }
-  h2{
-    font-size: 3vh;
-  }
-  p{
-    line-height: 3.2vh;
-    text-align: left;
-  }
-  .copyIP{
-    font-size: 3.5vh;
-  }
+    position: relative;
+    width: 30vw;
+    height: 30vw;
 }
-@media ((orientation: portrait) and (max-height: 1500px)){
-  .sel img{
-    top: 85%;
-  }
+b{
+  color: #ff7000;
 }
-@media ((orientation: portrait) and (max-height: 850px)){
-  .sel img{
-    top: 80%;
-  }
-}
-@media ((orientation: portrait) and (max-height: 500px)){
-  .sel img{
-    display: none;
-  }
-  p{
-    line-height: 2.5vh;
-    overflow: auto;
-  }
-}
-@media (orientation: landscape) {
-  .site-header{
-      height: auto;
-  }
-  nav a{
-    font-size: 1vw;
-  }
-  h2{
-    font-size: 3vw;
-  }
-  p{
-    line-height: 4vh;
-    text-align: justify;
-  }
-  .left-img{
-    height: 35vw;
-    top: auto;
-  }
-  .right-img{
-  display: none;
-  height: 35vw;
-  top: auto;
-}
-  .block{
-    height: 75vh;
-    width: 75%;
-    transform: translateY(-4vh);
-  }
-  .glowing{
-      font-size: 2vw;
-  }
-  .copyIP{
+.block{
+    margin-top: 3.5vw;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    width: 100%;
     font-size: 2vw;
+    font-family: 'Minecraft rus', sans-serif;
+}
+
+.circle {
+  font-size: 6vw;
+  font-family: 'Minecraft rus', sans-serif;
+  margin-top: 10vw;
+  margin-left: 70vw;
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  border: 1vw solid #fff;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.news{
+    display: block;
+    background-color: #07210021;
+    margin-top: 10vw;
+    text-align: justify;
+    color: white;
+    font-size: 1vw;
+    font-family: 'Minecraft rus', sans-serif;
+    justify-items: center;
+}
+.news-items{
+    display: grid;
+    grid-auto-flow: row dense;
+    grid-template-columns: auto auto;
+
+    justify-content: center;
+    align-items: start;
+    justify-items: center;
+}
+.news-item{
+    border: 2px solid rgba(0, 0, 0, 0);
+    border-radius: 20%;
+    position: relative;
+    padding: 20px;
+    max-width: 45vw;
+}
+.news-item:hover{
+    background-color: black;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 25%;
+}
+
+header{
+  top: 0px;
+  z-index: 5;
+  position: fixed;
+  padding: 2px;
+  display: flex;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(2.5px);
+  font-family: 'Minecraft rus', sans-serif;
+}
+a{
+    color: #00b5ff;
+}
+a:hover{
+    color: #ff7000;
+}
+header>img{
+    margin-left: 1px;
+    margin-right: 15px;
+}
+.mix{
+    z-index: -1;
+    display: flex;
+    position: absolute;
+    top: 90%;
+    mix-blend-mode: lighten;
+    height: 50vw;
+    max-width: 100%;
+}
+.name{
+    font-size: 1.5vw;
+    color: #ff7000;
+}
+.cent{
+    margin-top: 2px;
+    font-size: 1vw;
+    margin-left: 5vw;
+    color: white;
+    text-align: center;
+}
+footer{
+    color: darkgrey;
+    text-align: center;
+    padding: 2%;
+    margin-top: 10%;
+    font-size: 8pt;
+}
+
+.water {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 0; /* Изначальная высота — обновляется в JS */
+  background-color: red; /* Изначальный цвет */
+  transition: height 1s cubic-bezier(0.34, 0.38, 0.64, 1.12), background-color 1s ease-in-out;
+  animation: wave 4s infinite cubic-bezier(0.46, 0.26, 0.72, 0.89);
+  box-shadow: inset 0 8px 15px rgba(16, 16, 16, 0.2);
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+  100% {
+    transform: rotate(-4deg);
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.percentage {
+    -webkit-font-smoothing: antialiased; /* Сглаживание для WebKit */
+    -moz-osx-font-smoothing: grayscale; /* Сглаживание для Firefox */
+animation: fadeIn 0.5s ease-out forwards;
+  position: absolute;
+  color: #fff;
+  text-shadow: 0 4px 20px rgba(255, 255, 255, 0.75);
+}
+
+@media (orientation: landscape){
+    header>img{
+        height: 2vw;
+        width: 2vw;
+    }
+}
+@media (orientation: portrait){
+    header{
+        position: static;
+    }
+    .mix{
+        display: none;
+    }
+    .news{
+        font-size: 2.5vw;
+        text-align: center;
+    }
+    .news-items{
+    grid-template-columns: auto;
+    }
+    .news-item{
+        border: none;
+        max-width: 90vw;
+        padding: 10px;
+    }
+    .news-item:hover{
+        border: none;
+    }
+    header{
+        height: 7vw;
+    }
+    header>img{
+        height: 6vw;
+        width: 6vw;
+    }
+    .name{
+        font-size: 5vw;
+        color: #ff7000;
+    }
+    .cent{
+        font-size: 3vw;
+    }
+
+}
+
