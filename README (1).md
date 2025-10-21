@@ -34,9 +34,8 @@ layout:
 
 **Voicechat - голосовой чат.**
 
-VoiceMessages - Аддон к голосовому чату, позволяет отправлять голосовые сообщения
-
-<figure><img src=".gitbook/assets/image (1).png" alt="" width="450"><figcaption></figcaption></figure>
+**Voice Messages** - Аддон к голосовому чату, позволяет отправлять голосовые сообщения\
+&#xNAN;_&#x41A;оманда:_ <kbd>/vmsg</kbd>
 
 <h3 align="center"><mark style="color:orange;">Дата-паки</mark></h3>
 
