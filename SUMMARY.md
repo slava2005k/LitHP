@@ -10,4 +10,5 @@
   * [Список способностей](features/rating/rating-list.md)
 * [Периоды развития](features/periody-razvitiya.md)
 * [Ачивки](features/achivki.md)
+* [Кастомные крафты](features/crafts.md)
 * [Основные ограничения](features/info.md)
