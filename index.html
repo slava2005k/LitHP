@@ -1,35 +1,77 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LitHP state</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="images/logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LitHP - уникальный сервер Minecraft с экономикой, квестами и атмосферой.">
+    <meta name="keywords" content="Minecraft, LitHP, сервер, выживание, квесты, экономика">
+    <meta name="author" content="LitHP Team">
+    
+    <link rel="icon" type="image/png" href="images/lhp-logo.png">
+    
+    <title>LitHP ‣ Official</title>
+    
+    <!-- Подключаем стильные шрифты: Orbitron (для заголовков) и Montserrat (для текста) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-  <header><img src="images/logo.png"><div class="name">LitHP</div><div class="cent">Посети <a href="https://limeplay-community.gitbook.io/lithp-wiki"><b>wiki</b></a> и узнай больше о проекте!</div></header>
-  <div class="block"><h2>Готовность <b>бета-версии</b></h2><br></div>
-  <div class="container">
-    <div class="circle">
-      <div class="water" id="water"></div>
-      <div class="percentage" id="percentage">0%</div>
-    </div>
-  </div>
-  <div class="news">
-    <!--<h2>Последние новости</h2><br>
-    <div class="news-items">
+    
+    <!-- Шапка сайта -->
+    <header class="site-header">
+        <div class="header-content">
+            <!-- Логотип -->
+            <a href="#" class="logo-link">
+                <img src="images/lhp-logo.png" alt="LitHP Logo" class="logo">
+            </a>
+            
+            <!-- Меню -->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#about">О проекте</a></li>
+                    <li><a href="#how-to-play">Начать игру</a></li>
+                    <li><a href="#features">Особенности</a></li>
+                    <!-- Новые ссылки -->
+                    <li><a href="https://limeplay-community.gitbook.io/" target="_blank" class="accent-link">Wiki</a></li>
+                    <li><a href="https://t.me/lit_hp" target="_blank" class="accent-link">Telegram</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    </div>-->
-  </div>
-<footer><span>Not an official Minecraft product.</span></footer>
-<div class="mix"><img src="images/fire.gif"></div>
+    <main>
+        <!-- Секция 1: О нас -->
+        <section id="about" class="block active">
+            <h2>О ПРОЕКТЕ</h2>
+            <p>LitHP — это не просто сервер. Это закрытая экосистема для тех, кто ценит ванильную механику в сочетании с уникальной экономикой. Строй, торгуй, выживай.</p>
+        </section>
+
+        <!-- Секция 2: Как играть -->
+        <section id="how-to-play" class="block">
+            <h2>КАК НАЧАТЬ</h2>
+            <p>Всё просто: скачай наш модпак и заходи на сервер. Никаких сложных регистраций, чистый геймплей и стабильный TPS за счет мощных серверов в Москве.</p>
+        </section>
+
+        <!-- Секция 3: Фишки -->
+        <section id="features" class="block">
+            <h2>ОСОБЕННОСТИ</h2>
+            <p>Кастомные данжи, сложные боссы и ивенты, которые не дадут заскучать. Мы создали мир, который бросает вызов.</p>
+        </section>
+
+        <!-- Секция 4: Для креаторов -->
+        <section id="creators" class="block">
+            <h2>MEDIA</h2>
+            <p>Ты стример или ютубер? Мы предоставляем площадку для творчества и поддержку администрации.</p>
+        </section>
+    </main>
+
+    <!-- Фоновый элемент для атмосферы (можно будет настроить в CSS) -->
+    <div class="bg-overlay"></div>
+<!-- Индикатор прокрутки -->
+<div class="scroll-indicator"></div>
 </body>
-<script src="script.js"></script>
 </html>
-
-
-
-
-
-
