@@ -3,44 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LimePlay ‣ main</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Vinyl&family=Exo+2&display=swap" rel="stylesheet">
+    <meta name="description" content="LitHP - уникальный сервер Minecraft с экономикой, квестами и атмосферой.">
+    <meta name="keywords" content="Minecraft, LitHP, сервер, выживание, квесты, экономика">
+    <meta name="author" content="LitHP Team">
+    
+    <title>LitHP ‣ Official</title>
+    
+    <!-- Подключаем стильные шрифты: Orbitron (для заголовков) и Montserrat (для текста) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
+    
+    <!-- Шапка сайта -->
     <header class="site-header">
-        <nav class="navbar">
-            <ul>
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#how-to-play">Как играть</a></li>
-                <li><a href="#features">Фишки сервера</a></li>
-                <li><a href="#content-creators">Контент-мейкеры</a></li>
-                <li><a href="#players">Игроки</a></li>
-            </ul>
-        </nav>
+        <div class="header-content">
+            <!-- Логотип -->
+            <a href="#" class="logo-link">
+                <img src="images/lhp-logo.png" alt="LitHP Logo" class="logo">
+            </a>
+            
+            <!-- Меню -->
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#about">О проекте</a></li>
+                    <li><a href="#how-to-play">Начать игру</a></li>
+                    <li><a href="#features">Особенности</a></li>
+                    <!-- Новые ссылки -->
+                    <li><a href="https://limeplay-community.gitbook.io/" target="_blank" class="accent-link">Wiki</a></li>
+                    <li><a href="https://t.me/lit_hp" target="_blank" class="accent-link">Telegram</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+
     <main>
-        <section id="about" class="block" >
-            <h2>О нас</h2>
-            <p>Наш сервер - место, где каждый игрок найдет то, что ему нужно: приключения, строительство или просто спокойную игру с друзьями. Мы ценим уют и дружелюбную атмосферу.</p>
+        <!-- Секция 1: О нас -->
+        <section id="about" class="block active">
+            <h2>О ПРОЕКТЕ</h2>
+            <p>LitHP — это не просто сервер. Это закрытая экосистема для тех, кто ценит ванильную механику в сочетании с уникальной экономикой. Строй, торгуй, выживай.</p>
         </section>
+
+        <!-- Секция 2: Как играть -->
         <section id="how-to-play" class="block">
-            <h2>Как играть</h2>
-            <p>Подключиться просто! Всё, что нужно: установить наш модпак и зайти на сервер. Подробные инструкции помогут даже новичкам.</p>
+            <h2>КАК НАЧАТЬ</h2>
+            <p>Всё просто: скачай наш модпак и заходи на сервер. Никаких сложных регистраций, чистый геймплей и стабильный TPS за счет мощных серверов в Москве.</p>
         </section>
+
+        <!-- Секция 3: Фишки -->
         <section id="features" class="block">
-            <h2>Фишки сервера</h2>
-            <p>Уникальная экономика, кастомные мобы, сложные данжи и квесты. Мы сделали всё, чтобы игра была захватывающей.</p>
+            <h2>ОСОБЕННОСТИ</h2>
+            <p>Кастомные данжи, сложные боссы и ивенты, которые не дадут заскучать. Мы создали мир, который бросает вызов.</p>
         </section>
-        <section id="content-creators" class="block">
-            <h2>Преимущества для контент-мейкеров</h2>
-            <p>Создаёшь контент? Получай доступ к эксклюзивным ресурсам, приватным зонам и специальным событиям для записи уникальных видео.</p>
-        </section>
-        <section id="players" class="block">
-            <h2>Состав активных игроков</h2>
-            <p>У нас дружелюбное сообщество, активные игроки и модераторы, которые всегда готовы помочь.</p>
+
+        <!-- Секция 4: Для креаторов -->
+        <section id="creators" class="block">
+            <h2>MEDIA</h2>
+            <p>Ты стример или ютубер? Мы предоставляем площадку для творчества и поддержку администрации.</p>
         </section>
     </main>
+
+    <!-- Фоновый элемент для атмосферы (можно будет настроить в CSS) -->
+    <div class="bg-overlay"></div>
 </body>
 </html>

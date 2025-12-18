@@ -1,154 +1,84 @@
-// Инициализация переменных
-const sections = document.querySelectorAll('.block'); // Все блоки
-const links = document.querySelectorAll('.navbar a'); // Ссылки в шапке
-let currentIndex = 0; // Индекс текущего блока
-let isScrolling = false; // Флаг для предотвращения лишнего скролла
-let lastScrollTime = 0; // Время последнего скролла
-let isInitialScroll = true; // Флаг для анимации появления при первом скролле
+// Находим элементы
+const sections = document.querySelectorAll('.block');
+const navLinks = document.querySelectorAll('.navbar a:not(.accent-link)');
+let currentIndex = 0;
+let isScrolling = false;
 
-// Прокрутка к секции с анимацией исчезновения
-const scrollToSection = (index) => {
-    const targetSection = sections[index];
-    if (!targetSection || isScrolling) return;
+// Функция переключения слайдов
+function showSection(index) {
+    if (index < 0 || index >= sections.length) return;
+    if (isScrolling) return;
 
     isScrolling = true;
+    currentIndex = index;
 
-    // Убираем анимации скрытия, если это первая прокрутка
-    sections.forEach((section, i) => {
+    // Скрываем все, показываем нужный
+    sections.forEach((sec, i) => {
         if (i === index) {
-            section.classList.add('visible');
-            section.classList.remove('hidden');
+            sec.classList.add('active');
         } else {
-            section.classList.remove('visible');
-            section.classList.add('hidden');
+            sec.classList.remove('active');
         }
     });
 
-    window.scrollTo({
-        top: targetSection.offsetTop - 75,
-        behavior: 'smooth',
-    });
-
-    setTimeout(() => (isScrolling = false), 800);
-};
-
-
-window.addEventListener('load', () => {
-    currentIndex = 0; // Начальный блок
-    scrollToSection(currentIndex); // Прокрутить к первому блоку
-});
-
-
-// Обработчик колесика мыши с блокировкой быстрого скролла
-window.addEventListener('wheel', (event) => {
-    const now = Date.now();
-    if (now - lastScrollTime < 800 || isScrolling) return; // Если быстрый скролл или анимация идет, игнорируем
-
-    lastScrollTime = now; // Обновляем время последнего скролла
-
-    // Проверка, чтобы анимация появлялась при первом скролле
-    if (isInitialScroll) {
-        sections.forEach((section) => {
-            section.classList.add('visible'); // Показать все блоки
-        });
-        isInitialScroll = false; // Больше не показывать все блоки
-    }
-
-    // Запоминаем текущий индекс перед прокруткой
-    const previousIndex = currentIndex;
-
-    if (event.deltaY > 0) {
-        // Скролл вниз
-        currentIndex = Math.min(currentIndex + 1, sections.length - 1);
-    } else {
-        // Скролл вверх
-        currentIndex = Math.max(currentIndex - 1, 0);
-    }
-
-    // Только если индекс изменился, выполняем прокрутку
-    if (currentIndex !== previousIndex) {
-        scrollToSection(currentIndex);
-    }
-});
-
-let touchStartY = 0; // Координата начала касания
-let touchEndY = 0;   // Координата окончания касания
-
-// Функция для обработки свайпов
-function handleSwipe() {
-    const swipeDistance = touchStartY - touchEndY; // Расстояние свайпа
-    const swipeThreshold = 50; // Минимальная длина свайпа для обработки
-
-    if (swipeDistance > swipeThreshold) {
-        // Свайп вверх (следующий блок)
-        currentIndex = Math.min(currentIndex + 1, sections.length - 1);
-        scrollToSection(currentIndex);
-    } else if (swipeDistance < -swipeThreshold) {
-        // Свайп вниз (предыдущий блок)
-        currentIndex = Math.max(currentIndex - 1, 0);
-        scrollToSection(currentIndex);
-    }
+    // Тайм-аут для колесика мыши (чтобы не пролетало сразу всё)
+    setTimeout(() => {
+        isScrolling = false;
+    }, 800);
 }
 
-// Событие начала касания
-window.addEventListener('touchstart', (event) => {
-    touchStartY = event.touches[0].clientY; // Запоминаем начальную координату
-});
-
-// Событие окончания касания
-window.addEventListener('touchend', (event) => {
-    touchEndY = event.changedTouches[0].clientY; // Запоминаем конечную координату
-    handleSwipe(); // Обрабатываем свайп
-});
-
-
-// Обновление текущего индекса при ручной прокрутке
-window.addEventListener('scroll', () => {
-    if (!isScrolling) {
-        const scrollPosition = window.scrollY + 75; // Учитываем смещение
-        sections.forEach((section, index) => {
-            if (scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
-                currentIndex = index; // Обновляем текущий индекс
-            }
-        });
+// Обработка колесика мыши
+window.addEventListener('wheel', (e) => {
+    if (isScrolling) return;
+    
+    if (e.deltaY > 0) {
+        showSection(currentIndex + 1);
+    } else {
+        showSection(currentIndex - 1);
     }
 });
 
-// Обработчик кликов по ссылкам
-links.forEach((link, index) => {
-    link.addEventListener('click', (event) => {
-        event.preventDefault(); // Отключаем стандартное поведение
-        currentIndex = index; // Синхронизируем индекс
-        scrollToSection(currentIndex); // Переходим к блоку
+// Обработка кликов по меню
+navLinks.forEach((link, index) => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        showSection(index);
     });
 });
 
+// Обработка свайпов на телефоне
+let touchStartY = 0;
+window.addEventListener('touchstart', e => touchStartY = e.touches[0].clientY);
+window.addEventListener('touchend', e => {
+    const touchEndY = e.changedTouches[0].clientY;
+    if (touchStartY - touchEndY > 50) showSection(currentIndex + 1); // Свайп вверх
+    if (touchEndY - touchStartY > 50) showSection(currentIndex - 1); // Свайп вниз
+});
 
-
-
-
-const neonTitles = document.querySelectorAll('h2'); // Все заголовки
+/* --- НЕОНОВЫЙ ЭФФЕКТ (Оранжевый) --- */
+const neonTitles = document.querySelectorAll('h2');
 
 function getRandom(min, max) {
     return Math.random() * (max - min) + min;
 }
 
 function flickerEffect(element) {
-    const dynamicShadow1 = getRandom(10, 20);
-    const dynamicShadow2 = getRandom(15, 35);
+    // Параметры "глюка" света
     const opacity = getRandom(0.8, 1);
+    const blur1 = getRandom(10, 20);
+    const blur2 = getRandom(30, 60);
 
-    // Фиксированное высокое свечение + динамическое
-    element.style.textShadow = `
-        0 0 5px #99ffbb, 
-        0 0 30px #99ffbb, 
-        0 0 35px #00ffb3, 
-        0 0 ${dynamicShadow1}px #ccff00, 
-        0 0 ${dynamicShadow2}px #00ffb3
-    `;
+    // Оранжевая гамма: #ff7000 (основа), #ff4500 (темнее), #ffa500 (светлее)
     element.style.opacity = opacity;
+    element.style.textShadow = `
+        0 0 10px #ff7000,
+        0 0 ${blur1}px #ff4500,
+        0 0 ${blur2}px #ff7000
+    `;
 
-    setTimeout(() => flickerEffect(element), getRandom(50, 300));
+    // Рекурсивный вызов с разной задержкой для эффекта живого неона
+    setTimeout(() => flickerEffect(element), getRandom(50, 400));
 }
 
-neonTitles.forEach(title => flickerEffect(title)); // Запуск для всех заголовков
+// Запускаем мерцание для всех заголовков
+neonTitles.forEach(title => flickerEffect(title));

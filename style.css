@@ -1,128 +1,176 @@
-/* Основные настройки */
-html, body {
-    overflow: hidden;
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Exo 2', sans-serif;
-    background-color: rgb(0, 29, 29);
-    color: #ececec;
-    scroll-behavior: smooth;
-    background-size: cover;
+/* --- Сброс и База --- */
+:root {
+    --main-bg: #000000;
+    --accent-orange: #ff7000;
+    --hover-red: #f80000;
+    --glass-bg: rgba(20, 20, 20, 0.7);
+    --text-color: #e0e0e0;
 }
 
-/* Шапка сайта */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-bg);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden; /* Скрываем скроллбар браузера */
+}
+
+/* --- Хедер и Лого --- */
 .site-header {
     position: fixed;
     top: 0;
-    opacity: 60%;
-    background-color: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    z-index: 5;
-    padding: 10px 20px;
-    transition: all 0.5s ease-in-out;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    z-index: 100;
+    background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+    backdrop-filter: blur(5px);
 }
 
-.site-header:hover {
-    opacity: 100%;
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.logo {
+    height: 50px; /* Размер логотипа */
+    width: auto;
+    filter: drop-shadow(0 0 5px rgba(255, 112, 0, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px var(--accent-orange));
+}
+
+/* --- Меню --- */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar a {
-    color: #ffffff;
     text-decoration: none;
-    font-family: 'Exo 2', sans-serif;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.navbar a:hover {
-    color: #00ffb3;
-    text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
-    transform: scale(1.05);
-}
-
-.navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-}
-
-/* Блоки сайта */
-.block {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    opacity: 0;
-    transform: translateY(50px);
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif; /* Геймерский шрифт */
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
     position: relative;
-    height: 80vh;
-    width: 70%;
-    margin: 50px auto;
-    padding: 20px;
-    background: linear-gradient(329deg, rgba(100,0,30,0.5) 30%, rgba(0,0,0,0) 100%);
-    border-radius: 50px;
+}
+
+/* Эффект наведения (Красный) */
+.navbar a:hover, .navbar a.active {
+    color: var(--hover-red);
+    text-shadow: 0 0 15px var(--hover-red);
+}
+
+/* Ссылки Wiki/TG чуть ярче по дефолту */
+.accent-link {
+    color: #aaaaaa;
+    border-bottom: 1px solid transparent;
+}
+.accent-link:hover {
+    border-color: var(--hover-red);
+}
+
+/* --- Основные блоки (Секции) --- */
+main {
+    position: relative;
+    height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
-    text-align: center;
-    box-shadow: 0 8px 60px rgba(100,0,30,0.1);
-    transition: box-shadow 0.5s ease-out, scale 0.5s ease-out, opacity 0.8s, transform 0.8s;
-}
-.block:hover {
-    box-shadow: 0 8px 80px rgba(100,0,30,0.1);
-    scale: 105%;
+    justify-content: center;
 }
 
-.block.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.block.hidden {
+.block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 80%;
+    max-width: 900px;
+    padding: 60px;
+    
+    /* Стекломорфизм */
+    background: var(--glass-bg);
+    border: 1px solid rgba(255, 112, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0,0,0, 0.8);
+    
     opacity: 0;
-    transform: translateY(-50px);
+    visibility: hidden;
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    
+    text-align: center;
 }
 
-/* Заголовки и текст внутри блока */
+/* Активный блок */
+.block.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    border-color: rgba(255, 112, 0, 0.3);
+    box-shadow: 0 0 100px rgba(255, 112, 0, 0.15);
+}
+
+/* Типографика внутри блоков */
 .block h2 {
-    transition: text-shadow 0.01s, opacity 0.1s;
-    font-family: 'Rubik Vinyl', bold;
-    font-size: 4vw;
-    text-shadow: 0 0 10px #ccff00, 0 0 30px #ccff00, 0 0 35px #00ffb3;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    /* Базовое свечение, JS добавит мерцание */
+    text-shadow: 0 0 20px var(--accent-orange); 
 }
 
 .block p {
-    font-family: 'Exo 2', sans-serif;
-    font-size: 1.6vw;
-    line-height: 1.6;
-    max-width: 60vw;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ccc;
+    max-width: 700px;
     margin: 0 auto;
+    font-weight: 300;
 }
 
-/* Оптимизация для телефонов */
-@media (orientation: portrait){
-    .site-header{
-        width: 90%;
+/* --- Мобильная адаптация --- */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 20px;
     }
-    .navbar a {
-        font-size: 12px; /* Уменьшаем размер текста в меню */
+    
+    .navbar ul {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-
+    
     .block {
-        width: 90%; /* Увеличиваем ширину для удобства на маленьких экранах */
+        width: 90%;
+        padding: 30px;
     }
-
+    
     .block h2 {
-        font-size: 7vw; /* Увеличиваем пропорционально размер заголовка */
+        font-size: 2rem;
     }
-
+    
     .block p {
-        font-size: 3.5vw; /* Уменьшаем текст внутри блоков */
-    }
-}
-@media (orientation: landscape) {
-    .site-header{
-        width: 100%;
+        font-size: 1rem;
     }
 }
