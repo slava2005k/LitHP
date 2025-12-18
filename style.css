@@ -59,6 +59,20 @@ html, body {
     margin: 0;
     padding: 0;
 }
+.news{
+    display: block;
+    background-color: #07210021;
+    margin-top: 10vw;
+    text-align: justify;
+    color: white;
+    font-size: 1vw;
+    font-family: 'Minecraft rus', sans-serif;
+    justify-items: center;
+}
+.news-items{
+    display: grid;
+    grid-auto-flow: row dense;
+    grid-template-columns: auto auto;
 
 .navbar a {
     text-decoration: none;
@@ -239,4 +253,13 @@ main {
     60% {
         transform: translateX(-50%) translateY(-7px) rotate(45deg);
     }
+    .name{
+        font-size: 5vw;
+        color: #ff7000;
+    }
+    .cent{
+        font-size: 3vw;
+    }
+
 }
+
