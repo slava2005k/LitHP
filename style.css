@@ -5,7 +5,7 @@ html, body {
   margin: 0px;
   padding: 0px;
   font-family: 'Exo 2', sans-serif;
-  background-color: rgb(0, 29, 29);
+  background-color: rgb(25, 0, 0);
   color: #ececec;
   scroll-behavior: smooth;
   background-size: cover;
@@ -46,6 +46,8 @@ html, body {
   text-align: center; /* Выравниваем текст по центру */
 }
 
+
+
 .navbar a, nav a {
   color: #ffffff;
   text-decoration: none;
@@ -56,12 +58,11 @@ html, body {
   word-wrap: break-word; /* Разрешаем разрыв текста, если он слишком длинный */
 }
 
-.navbar a:hover, nav a:hover {
-  color: #00ffb3;
-  text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
-  transform: scale(1.05);
+.navbar a:hover, .navbar a.active, nav a:hover{
+    color: #f80000;
+    text-shadow: 0 0 15px #880000;
+    transform: scale(105%);
 }
-
 /* Мигающий текст */
 .glowing {
   display: flex;
@@ -78,7 +79,7 @@ html, body {
   animation: glowing 6s linear infinite;
 }
 .glowing-text:hover{
-  text-shadow: 0 0 15px #ccff00, 0 0 25px #00ffb3;
+  text-shadow: 0 0 15px #ffaa00, 0 0 25px #ff7000;
   animation: none;
 }
 .glowing-text.broken {
@@ -178,7 +179,7 @@ h2 {
   transition: text-shadow 0.01s, opacity 0.1s;
   font-family: 'Rubik Vinyl', bold;
   font-size: 3vw;
-  text-shadow: 0 0 10px #ccff00, 0 0 20px #ccff00, 0 0 35px #00ffb3;
+  text-shadow: 0 0 10px #ffaa00, 0 0 20px #ffaa00, 0 0 35px #ff7000;
 }
 h3{
   display: flex;
@@ -197,8 +198,8 @@ p, tbody{
 }
 .bold{
   font-weight: bold;
-  text-shadow: 1px 1px 20px #ccff00;
-  color: #ccff00;
+  text-shadow: 1px 1px 20px #ffaa00;
+  color: #ffaa00;
 }
 .copyIP{
   text-align: center;
@@ -208,8 +209,8 @@ p, tbody{
   max-width: 200vw;
   margin: inherit;
   font-weight: bold;
-  color: #00ff6a;
-  text-shadow: 1px 1px 10px #00ff6a;
+  color: #ff8c00;
+  text-shadow: 1px 1px 10px #ff8c00;
   padding: 12px;
   cursor: pointer;
   background-color: rgba(0,0,0,0);
@@ -219,7 +220,7 @@ p, tbody{
   flex-direction: row;
 }
 .copyIP:hover{
-  text-shadow: 1px 1px 20px #00ff6a;
+  text-shadow: 1px 1px 20px #ff8c00;
 }
 .copyIP:active{
   position:relative;
@@ -244,7 +245,7 @@ border-collapse: collapse;
 th, td {
 padding: 10px;
 border: 3px solid rgb(255, 255, 255);
-box-shadow: 0 0 10px #ccff00, 0 0 3px #ccff00, 0 0 3px #00ffb3;
+box-shadow: 0 0 10px #ffaa00, 0 0 3px #ffaa00, 0 0 3px #ff7000;
 }
 th {
 background-color: #0000005b;
@@ -475,7 +476,7 @@ text-align: center;
   .block{
     height: 75vh;
     width: 75%;
-    transform: translateY(-4vh);
+    transform: translateY(0vh);
   }
   .glowing{
       font-size: 2vw;
